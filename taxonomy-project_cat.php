@@ -14,13 +14,21 @@
 
 <?php get_header(); ?>
 
-			<div id="content">
+			<div id="content" class="taxonmy">
 
-				<div id="inner-content" class="wrap cf">
+				<div id="inner-content" class="container cf">
 
-						<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+						<main id="main" class="m-all col-md-12 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
-							<h1 class="archive-title h2"><span><?php _e( 'Posts Categorized:', 'bonestheme' ); ?></span> <?php single_cat_title(); ?></h1>
+
+							<div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
+								<?php if(function_exists('bcn_display'))
+								{
+									bcn_display();
+								}?>
+							</div>
+
+							<h1 class="archive-title h2"><?php single_cat_title(); ?></h1>
 
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 

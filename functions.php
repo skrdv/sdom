@@ -265,7 +265,9 @@ function add_fonts() {
 
 add_action('wp_enqueue_scripts', 'add_fonts');
 
+
 /************* CUSTOM DEFINES *************/
+
 define('WP_SCSS_ALWAYS_RECOMPILE', true);
 
 /**
@@ -275,5 +277,11 @@ function add_bootstrap() {
     wp_enqueue_style( 'bootstrap', get_template_directory_uri(). '/library/css/bootstrap.css', false );
 }
 add_action( 'wp_enqueue_scripts', 'add_bootstrap' );
+
+
+
+
+/************* CUSTOM FUNCTIONS *************/
+
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>
