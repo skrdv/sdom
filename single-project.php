@@ -23,18 +23,58 @@
 
 						<main id="main" class="m-all col-md-9 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
+							<div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
+								<?php if(function_exists('bcn_display')) { bcn_display(); } ?>
+							</div>
+
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 							<article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article">
 
 								<header class="article-header">
-
 									<h1 class="single-title custom-post-type-title"><?php the_title(); ?></h1>
-
-
 								</header>
 
 								<section class="entry-content cf">
+
+									<div id="project-gallery" class="gallery col-md-8">
+
+									</div>
+
+									<div id="project-params" class="params col-md-4">
+										<div class="param cf">
+											<div class="label">Общий размер дома</div>
+											<div class="value">
+												<?php the_field('overall_size'); ?>
+											</div>
+										</div>
+										<div class="param cf">
+											<div class="label">Общая площадь</div>
+											<div class="value">
+												<?php the_field('total_area'); ?>
+											</div>
+										</div>
+										<div class="param cf">
+											<div class="label">Площадь крыльца</div>
+											<div class="value">
+												<?php the_field('porch_area'); ?>
+											</div>
+										</div>
+										<div class="param cf">
+											<div class="label">Площадь веранды</div>
+											<div class="value">
+												<?php the_field('veranda_area'); ?>
+											</div>
+										</div>
+										<div class="param cf">
+											<div class="label">Площадь балкона</div>
+											<div class="value">
+												<?php the_field('balcony_area'); ?>
+											</div>
+										</div>
+									</div>
+
+
 									<?php the_content(); ?>
 								</section> <!-- end article section -->
 
@@ -68,6 +108,12 @@
 						</main>
 
 						<?php get_sidebar('sidebar-projects'); ?>
+
+						<div id="feedback" class="feedback col-md-12">
+							<div class="feedback-title">У вас появился <span>вопрос?</span></div>
+							<div class="feedback-desc">немедленно задайте его нам!</div>
+							<?php echo do_shortcode( '[contact-form-7 id="20" title="Контактная форма"]' ); ?>
+						</div>
 
 				</div>
 

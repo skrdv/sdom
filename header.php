@@ -68,7 +68,7 @@
 			</header>
 
 			<div id="nav">
-				<div class="nav-inner">
+				<div class="nav-inner container">
 					<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
 						<?php wp_nav_menu(array(
 								 'container' => false,                           // remove nav container

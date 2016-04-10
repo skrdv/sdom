@@ -18,21 +18,17 @@
 
 				<div id="inner-content" class="container cf">
 
-						<main id="main" class="m-all col-md-12 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
-
+						<main id="main" class="m-all cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 							<div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
-								<?php if(function_exists('bcn_display'))
-								{
-									bcn_display();
-								}?>
+								<?php if(function_exists('bcn_display')) { bcn_display(); } ?>
 							</div>
 
-							<h1 class="archive-title h2"><?php single_cat_title(); ?></h1>
+							<h1 class="archive-title"><?php single_cat_title(); ?></h1>
 
 							<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article">
+							<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf col-md-3' ); ?> role="article">
 
 								<header class="article-header">
 
@@ -76,7 +72,11 @@
 
 						</main>
 
-						<?php get_sidebar(); ?>
+						<div id="feedback" class="feedback col-md-12">
+							<div class="feedback-title">У вас появился <span>вопрос?</span></div>
+							<div class="feedback-desc">немедленно задайте его нам!</div>
+							<?php echo do_shortcode( '[contact-form-7 id="20" title="Контактная форма"]' ); ?>
+						</div>
 
 				</div>
 

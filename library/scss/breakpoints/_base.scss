@@ -122,7 +122,7 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5 {
 }
 
 h1, .h1 {
-	font-size: 1.75em;
+	font-size: 1.5em;
 	line-height: 1.333em;
 }
 
@@ -146,10 +146,6 @@ h5, .h5 {
 	line-height: 2.09em;
 	text-transform: uppercase;
 	letter-spacing: 2px;
-}
-
-.archive-title {
-	color: #a3513d;
 }
 
 
@@ -236,7 +232,9 @@ and more scalable.
 			text-decoration: none;
 			text-transform: uppercase;
 			font-weight: bold;
-
+			&:first-child {
+				padding-left: 15px;
+			}
 			/*
 			remember this is for mobile ONLY, so there's no need
 			to even declare hover styles here, you can do it in
@@ -295,7 +293,16 @@ and more scalable.
 
 } /* end .nav */
 
+.breadcrumbs {
+	padding-left: 15px;
+	color: #aaaaaa;
+	font-size: 13px;
+	a {
+		color: #aaaaaa;
 
+		font-size: 13px;font-size: 13px;
+	}
+}
 
 
 /*********************
@@ -354,57 +361,41 @@ POSTS & CONTENT STYLES
 	border: 5px solid #cba36f;
 }
 
-	.feedback {
-		height: 300px;
-		padding: 20px 20px 20px 420px;
-		background: url(../images/feedback-bg.jpg) no-repeat left top;
-		background-size: 100% auto;
-		&-title {
-			font-size: 23px;
-			span {
-				color: $red;
-			}
-		}
-		&-desc {
-			font-size: 15px;
-			margin-bottom: 20px;
-		}
-		&-control {
-			display: inline-block;
-			&.name {
-				width: 45%;
-			}
-			&.email {
-				width: 50%;
-				float: right;
-			}
-			&.message {
-				width: 100%;
-			}
+.feedback {
+	height: 300px;
+	padding: 20px 20px 20px 420px;
+	background: url(../images/feedback-bg.jpg) no-repeat left top;
+	background-size: 100% auto;
+	&-title {
+		font-size: 23px;
+		span {
+			color: $red;
 		}
 	}
+	&-desc {
+		font-size: 15px;
+		margin-bottom: 20px;
+	}
+	&-control {
+		display: inline-block;
+		&.name {
+			width: 45%;
+		}
+		&.email {
+			width: 50%;
+			float: right;
+		}
+		&.message {
+			width: 100%;
+		}
+	}
+}
 
 		.hentry {
 			background-color: $white;
-			border-radius: 3px;
 			margin-bottom: 1.5em;
-			border: 1px solid $border-color;
 
-			header {
-				border-bottom: 1px solid $light-gray;
-				padding: 1.5em;
-			}
-
-			footer {
-				padding: 1.5em;
-				border-top: 1px solid $light-gray;
-
-				p {
-					margin: 0;
-				}
-			}
-
-		} /* end .hentry */
+		}
 
 		.single-title,
 		.page-title,
@@ -412,13 +403,22 @@ POSTS & CONTENT STYLES
 			margin: 0;
 		}
 
-		.single-title {}
+		.single-title {
+			margin: 0.3em 0 0.6em 0;
+			padding-left: 15px;
+			color: #a3513d;
+		}
 
 		.page-title {}
 
 		.entry-title {}
 
-		.archive-title {}
+		.archive-title {
+			margin: 0.3em 0 0.6em 0;
+			padding-left: 15px;
+			color: #a3513d;
+		}
+
 
 		/* want to style individual post classes? Booya! */
 		.post-id {}         /* post by id (i.e. post-3) */
@@ -441,31 +441,19 @@ POSTS & CONTENT STYLES
 
 		/* entry content */
 		.entry-content {
-			padding: 1.5em 1.5em 0;
+			padding: 0;
+
+			.params {
+				.label {
+					float: left;
+				}
+				.value {
+					float: right;
+				}
+			}
 
 			p {
 				margin: 0 0 1.5em;
-			}
-
-
-			ul, ol, table, dl {}
-
-			ul, ol {
-
-				li {}
-
-			}
-
-			ul {
-
-				li {}
-
-			}
-
-			ol {
-
-				li {}
-
 			}
 
 			table {
