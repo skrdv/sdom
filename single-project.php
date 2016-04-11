@@ -37,11 +37,11 @@
 
 								<section class="entry-content cf">
 
-									<div id="project-gallery" class="gallery col-md-8">
-
+									<div id="project-content" class="project-content col-md-8">
+										<?php the_content(); ?>
 									</div>
 
-									<div id="project-params" class="params col-md-4">
+									<div id="project-params" class="project-data col-md-4">
 										<div class="param cf">
 											<div class="label">Общий размер дома</div>
 											<div class="value">
@@ -75,7 +75,7 @@
 									</div>
 
 
-									<?php the_content(); ?>
+
 								</section> <!-- end article section -->
 
 								<footer class="article-footer">

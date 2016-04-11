@@ -979,18 +979,6 @@ HEADER STYLES
 .header {
   height: 363px;
   background: url(../images/header-bg.jpg) no-repeat top center;
-}
-#logo {
-  margin: 40px 0 0 6px;
-}
-#tools {
-  position: absolute;
-  right: 227px;
-  top: 64px;
-  width: 215px;
-  height: 50px;
-  text-align: right;
-  background: url(../images/phone-icon.png) no-repeat 0px 10px;
   /*********************
 NAVIGATION STYLES
 *********************/
@@ -1001,19 +989,6 @@ easily write one group of styles for
 the navs on the site so our css is cleaner
 and more scalable.
 */
-}
-#tools .phone {
-  color: #7a4c17;
-  font-size: 20px;
-}
-#tools .phone span {
-  font-size: 26px;
-  font-family: 'Open Sans Light', "Helvetica Neue", Helvetica, Arial, sans-serif;
-}
-#tools .adress {
-  font-family: ;
-  font-size: 15px;
-  color: #76940e;
 }
 #nav {
   /* end .nav */
@@ -1213,6 +1188,12 @@ POSTS & CONTENT STYLES
 .entry-content {
   padding: 0;
   /* end .entry-content */
+}
+.entry-content .bxslider {
+  margin: 0;
+}
+.entry-content .bxslider img {
+  margin: 0;
 }
 .entry-content .params .label {
   float: left;

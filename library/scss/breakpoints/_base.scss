@@ -159,32 +159,7 @@ HEADER STYLES
 	background: url(../images/header-bg.jpg) no-repeat top center;
 }
 
-	#logo {
-		margin: 40px 0 0 6px;
-	}
 
-	#tools {
-		position: absolute;
-		right: 227px;
-		top: 64px;
-		width: 215px;
-		height: 50px;
-		text-align: right;
-		background: url(../images/phone-icon.png) no-repeat 0px 10px;
-		.phone {
-			color: $brown;
-			font-size: 20px;
-			span {
-				font-size: 26px;
-				font-family: $opensans-bold;
-			}
-		}
-		.adress {
-			font-family: $opensans-light;
-			font-size: 15px;
-			color: $green;
-		}
-	}
 
 /*********************
 NAVIGATION STYLES
@@ -442,6 +417,13 @@ POSTS & CONTENT STYLES
 		/* entry content */
 		.entry-content {
 			padding: 0;
+
+			.bxslider {
+				margin: 0;
+				img {
+					margin: 0;
+				}
+			}
 
 			.params {
 				.label {

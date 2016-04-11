@@ -283,5 +283,29 @@ add_action( 'wp_enqueue_scripts', 'add_bootstrap' );
 
 /************* CUSTOM FUNCTIONS *************/
 
+function gallery_slider($output, $attr) {
+  $ids = explode(',', $attr['ids']);
+  $images = get_posts(array(
+    'include' => $ids,
+    'post_status' => 'inherit',
+    'post_type' => 'attachment',
+    'post_mime_type' => 'image'
+  ));
+  if ($images) {
+    $output = gallery_slider_template($images);
+    return $output;
+  }
+}
+add_filter('post_gallery', 'gallery_slider', 10, 2);
+
+function gallery_slider_template($images) {
+  ob_start();
+  include 'gallery-slider.php';
+  $output = ob_get_clean();
+  return $output;
+}
+
+
+
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>
