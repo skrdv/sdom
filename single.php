@@ -4,24 +4,15 @@
 
 				<div id="inner-content" class="wrap cf">
 
-					<main id="main" class="m-all t-2of3 d-5of7 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+					<main id="main" class="m-all col-md-9 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+
+						<div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
+							<?php if(function_exists('bcn_display')) { bcn_display(); } ?>
+						</div>
 
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 							<?php
-								/*
-								 * Ah, post formats. Nature's greatest mystery (aside from the sloth).
-								 *
-								 * So this function will bring in the needed template file depending on what the post
-								 * format is. The different post formats are located in the post-formats folder.
-								 *
-								 *
-								 * REMEMBER TO ALWAYS HAVE A DEFAULT ONE NAMED "format.php" FOR POSTS THAT AREN'T
-								 * A SPECIFIC POST FORMAT.
-								 *
-								 * If you want to remove post formats, just delete the post-formats folder and
-								 * replace the function below with the contents of the "format.php" file.
-								*/
 								get_template_part( 'post-formats/format', get_post_format() );
 							?>
 
@@ -45,7 +36,14 @@
 
 					</main>
 
-					<?php get_sidebar(); ?>
+					<?php get_sidebar('sidebar-projects'); ?>
+
+					<div class="feedback col-md-12">
+						<div class="feedback-man"></div>
+						<div class="feedback-title">У вас появился <span>вопрос?</span></div>
+						<div class="feedback-desc">немедленно задайте его нам!</div>
+						<?php echo do_shortcode( '[contact-form-7 id="20" title="Контактная форма"]' ); ?>
+					</div>
 
 				</div>
 

@@ -16,57 +16,117 @@
 
               <article id="post-<?php the_ID(); ?>" <?php post_class('cf'); ?> role="article" itemscope itemprop="blogPost" itemtype="http://schema.org/BlogPosting">
 
-                <header class="article-header entry-header">
+				  <header class="article-header">
+					  <h1 class="single-title custom-post-type-title"><?php the_title(); ?></h1>
+				  </header>
 
-                  <h1 class="entry-title single-title" itemprop="headline" rel="bookmark"><?php the_title(); ?></h1>
+				  <section class="entry-content cf">
 
-                  <p class="byline entry-meta vcard">
+					  <div class="project-content col-md-8">
+						  <?php the_content(); ?>
+					  </div>
 
-                    <?php printf( __( 'Posted', 'bonestheme' ).' %1$s %2$s',
-                       /* the time the post was published */
-                       '<time class="updated entry-time" datetime="' . get_the_time('Y-m-d') . '" itemprop="datePublished">' . get_the_time(get_option('date_format')) . '</time>',
-                       /* the author of the post */
-                       '<span class="by">'.__( 'by', 'bonestheme' ).'</span> <span class="entry-author author" itemprop="author" itemscope itemptype="http://schema.org/Person">' . get_the_author_link( get_the_author_meta( 'ID' ) ) . '</span>'
-                    ); ?>
+					  <div class="project-data col-md-4">
 
-                  </p>
+						  <div class="params">
+							  <div class="param cf">
+								  <div class="label">Общий размер дома</div>
+								  <div class="value">
+									  <?php the_field('overall_size'); ?> м
+								  </div>
+							  </div>
+							  <div class="param cf">
+								  <div class="label">Общая площадь</div>
+								  <div class="value">
+									  <?php the_field('total_area'); ?> м&sup2;
+								  </div>
+							  </div>
+							  <div class="param cf">
+								  <div class="label">Площадь крыльца</div>
+								  <div class="value">
+									  <?php the_field('porch_area'); ?> м&sup2;
+								  </div>
+							  </div>
+							  <div class="param cf">
+								  <div class="label">Площадь веранды</div>
+								  <div class="value">
+									  <?php the_field('veranda_area'); ?> м&sup2;
+								  </div>
+							  </div>
+							  <div class="param cf">
+								  <div class="label">Площадь балкона</div>
+								  <div class="value">
+									  <?php the_field('balcony_area'); ?> м&sup2;
+								  </div>
+							  </div>
+						  </div>
 
-                </header> <?php // end article header ?>
+						  <div class="checks">
+							  <?php if (the_field('foundation') === 1): ?>
+								  <?php echo '<div class="check green">Фундамент</div>'; ?>
+							  <?php endif; ?>
+							  <?php if (the_field('check_1') === 1): ?>
+								  <div class="check gray">Обработка сруба рубанком</div>
+							  <?php endif; ?>
+							  <?php if (the_field('check_2') === 1): ?>
+								  <div class="check gray">Обработка сруба антисептиком</div>
+							  <?php endif; ?>
+							  <?php if (the_field('check_3') === 1): ?>
+								  <div class="check gray">Подвивка мха (первичная конопатка)</div>
+							  <?php endif; ?>
+						  </div>
 
-                <section class="entry-content cf" itemprop="articleBody">
-                  <?php
-                    // the content (pretty self explanatory huh)
-                    the_content();
+						  <div class="price">
+							  <div class="label">Цена дома под крышу:</div>
+							  <div class="value">
+								  ~ <?php the_field('price'); ?> &#8381;
+							  </div>
+						  </div>
 
-                    /*
-                     * Link Pages is used in case you have posts that are set to break into
-                     * multiple pages. You can remove this if you don't plan on doing that.
-                     *
-                     * Also, breaking content up into multiple pages is a horrible experience,
-                     * so don't do it. While there are SOME edge cases where this is useful, it's
-                     * mostly used for people to get more ad views. It's up to you but if you want
-                     * to do it, you're wrong and I hate you. (Ok, I still love you but just not as much)
-                     *
-                     * http://gizmodo.com/5841121/google-wants-to-help-you-avoid-stupid-annoying-multiple-page-articles
-                     *
-                    */
-                    wp_link_pages( array(
-                      'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'bonestheme' ) . '</span>',
-                      'after'       => '</div>',
-                      'link_before' => '<span>',
-                      'link_after'  => '</span>',
-                    ) );
-                  ?>
-                </section> <?php // end article section ?>
+						  <button class="btn btn-lg btn-green btn-order">Перейти к оформлению заказа</button>
 
-                <footer class="article-footer">
+					  </div>
+				  </section>
 
-                  <?php printf( __( 'filed under', 'bonestheme' ).': %1$s', get_the_category_list(', ') ); ?>
+				  <footer class="article-footer">
+					  <aside class="block-related-posts col-md-12">
+						  <?php
+						  $post_id = get_the_ID();
+						  $cat_ids = array();
+						  $current_post_type = get_post_type( $post_id );
+						  $args = array(
+							  'category__in' => $cat_ids,
+							  'post_type' => $current_post_type,
+							  'posts_per_page' => '5',
+							  'post__not_in' => array( $post_id )
+						  );
+						  $query = new WP_Query( $args );
 
-                  <?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
+						  if ( $query->have_posts() ) {
+							?>
 
-                </footer> <?php // end article footer ?>
+						          <h4 class="block-title">Возможно вас заинтересует:</h4>
+						          <div class="projects-grid col-md-12">
+						             <?php while ( $query->have_posts() ) { ?>
+										<?php $query->the_post(); ?>
+											  <article id="post-<?php the_ID(); ?>" <?php post_class( 'cf col-md-4' ); ?> role="article">
+	  	  										<header class="article-header">
+	  	  											<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+	  	  												<h3 class="title"><?php the_title(); ?></h3>
+	  	  											</a>
+	  	  										</header>
+	  	  										<section class="entry-content">
+	  	  											<?php if ( has_post_thumbnail() ) { the_post_thumbnail(); } ?>
+	  	  										</section>
+	  	  									</article>
+						            <?php } ?>
+						          </div>
 
-                <?php //comments_template(); ?>
+
+
+						      <?php } ?>
+						  <?php wp_reset_postdata(); ?>
+					  </aside>
+				  </footer>
 
               </article> <?php // end article ?>

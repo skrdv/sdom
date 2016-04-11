@@ -14,10 +14,10 @@
 
 <?php get_header(); ?>
 
-			<div id="content" class="taxonmy">
+			<div id="content" class="category">
 				<div id="inner-content" class="container cf">
 
-						<main id="main" class="taxonomy-projects m-all cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+						<main id="main" class="projects-category m-all cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 							<div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
 								<?php if(function_exists('bcn_display')) { bcn_display(); } ?>
@@ -28,16 +28,15 @@
 							<div class="block-sub-categories col-md-12">
 								<?php
 								$term_id = $wp_query->get_queried_object_id();
-								$parent  = get_term_by( 'id', $term_id, 'project_cat');
+								$parent  = get_term_by( 'id', $term_id, 'category');
 							    if ($parent->parent != '0'){
 							        $term_id = $parent->parent;
 							    }
-								$termchildren = get_term_children( $term_id, 'project_cat' );
+								$termchildren = get_term_children( $term_id, 'category' );
 								foreach ( $termchildren as $key=>$child ):
-									print_r($child);
-									$term = get_term_by( 'id', $child, 'project_cat' ); ?>
+									$term = get_term_by( 'id', $child, 'category' ); ?>
 									<div class="item">
-										<a href="<?php echo get_term_link( $child, 'project_cat' ) ?>">
+										<a href="<?php echo get_term_link( $child, 'category' ) ?>">
 											<h3 class="title"><?php echo $term->name ?></h3>
 										</a>
 									</div>
@@ -60,7 +59,7 @@
 							</div>
 
 							<div class="page-navi col-md-12">
-								<span>Страницы: </span>
+								
 								<?php bones_page_navi(); ?>
 							</div>
 

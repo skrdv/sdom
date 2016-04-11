@@ -3416,7 +3416,7 @@ span.amp {
 }
 input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], select, textarea, .field {
   display: block;
-  height: 40px;
+  height: 36px;
   line-height: 1em;
   padding: 0 12px;
   margin-bottom: 10px;
@@ -3707,12 +3707,18 @@ BUTTONS STYLES
 .btn-more {
   font-weight: normal;
 }
+.btn-order {
+  white-space: normal;
+}
 .btn-green {
   background-image: -webkit-linear-gradient(top, #87a816 0%, #627d03 100%);
   background-image: -o-linear-gradient(top, #87a816 0%, #627d03 100%);
   background-image: linear-gradient(to bottom, #87a816 0%, #627d03 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF87A816', endColorstr='#FF627D03', GradientType=0);
+  /*********************
+HEADER STYLES
+*********************/
 }
 .btn-green:hover, .btn-green:focus {
   background-image: -webkit-linear-gradient(top, #799614 0%, #627d03 100%);
@@ -3728,36 +3734,35 @@ BUTTONS STYLES
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF749113', endColorstr='#FF627D03', GradientType=0);
 }
-.wpcf7-submit {
-  padding: 12px 40px;
-  border-radius: 6px;
-  text-transform: uppercase;
-  background-image: -webkit-linear-gradient(top, #e1b777 0%, #ca9953 100%);
-  background-image: -o-linear-gradient(top, #e1b777 0%, #ca9953 100%);
-  background-image: linear-gradient(to bottom, #e1b777 0%, #ca9953 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFE1B777', endColorstr='#FFCA9953', GradientType=0);
-  /*********************
-HEADER STYLES
-*********************/
-}
-.wpcf7-submit:hover, .wpcf7-submit:focus {
-  background-image: -webkit-linear-gradient(top, #ddae66 0%, #ca9953 100%);
-  background-image: -o-linear-gradient(top, #ddae66 0%, #ca9953 100%);
-  background-image: linear-gradient(to bottom, #ddae66 0%, #ca9953 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFDDAE66', endColorstr='#FFCA9953', GradientType=0);
-}
-.wpcf7-submit:active {
-  background-image: -webkit-linear-gradient(top, #dcac62 0%, #ca9953 100%);
-  background-image: -o-linear-gradient(top, #dcac62 0%, #ca9953 100%);
-  background-image: linear-gradient(to bottom, #dcac62 0%, #ca9953 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFDCAB62', endColorstr='#FFCA9953', GradientType=0);
-}
 .header {
   height: 363px;
   background: url(../images/header-bg.jpg) no-repeat top center;
+}
+.header .logo {
+  margin: 40px 0;
+}
+.header .tools {
+  position: absolute;
+  right: 240px;
+  top: 60px;
+  width: 210px;
+  text-align: right;
+}
+.header .tools .phone {
+  padding-left: 20px;
+  font-size: 20px;
+  color: #7a4c17;
+  background: url(../images/phone-icon.png) no-repeat 0px 10px;
+}
+.header .tools .phone span {
+  font-size: 26px;
+  font-weight: bold;
+}
+.header .tools .adress {
+  font-size: 16px;
+  line-height: 18px;
+  text-decoration: underline;
+  color: #76940e;
 }
 #tools {
   /*********************
@@ -3832,7 +3837,7 @@ and more scalable.
   /* end current highlighters */
 }
 .breadcrumbs {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   padding-left: 15px;
   color: #aaa;
   font-size: 14px;
@@ -3974,16 +3979,16 @@ POSTS & CONTENT STYLES
 .feedback {
   height: 300px;
   padding: 10px 20px 10px 420px;
-  background: url(../images/feedback-bg.jpg) no-repeat left top;
+  background: url(../images/feedback-bg.jpg) no-repeat left bottom;
   background-size: 100% auto;
 }
 .feedback-man {
   width: 365px;
   height: 355px;
   position: absolute;
-  bottom: 26px;
+  bottom: 16px;
   left: 0;
-  background: url(../images/feedback-man.png) no-repeat left top;
+  background: url(../images/feedback-man.png) no-repeat left bottom;
 }
 .feedback-title {
   font-size: 23px;
@@ -4009,16 +4014,44 @@ POSTS & CONTENT STYLES
 .feedback-control.message {
   width: 100%;
 }
-.taxonomy-projects {
-  padding-bottom: 80px;
+.wpcf7-submit {
+  padding: 12px 40px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  background-image: -webkit-linear-gradient(top, #e1b777 0%, #ca9953 100%);
+  background-image: -o-linear-gradient(top, #e1b777 0%, #ca9953 100%);
+  background-image: linear-gradient(to bottom, #e1b777 0%, #ca9953 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFE1B777', endColorstr='#FFCA9953', GradientType=0);
 }
-.taxonomy-projects .projects-grid {
+.wpcf7-submit:hover, .wpcf7-submit:focus {
+  background-image: -webkit-linear-gradient(top, #ddae66 0%, #ca9953 100%);
+  background-image: -o-linear-gradient(top, #ddae66 0%, #ca9953 100%);
+  background-image: linear-gradient(to bottom, #ddae66 0%, #ca9953 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFDDAE66', endColorstr='#FFCA9953', GradientType=0);
+}
+.wpcf7-submit:active {
+  background-image: -webkit-linear-gradient(top, #dcac62 0%, #ca9953 100%);
+  background-image: -o-linear-gradient(top, #dcac62 0%, #ca9953 100%);
+  background-image: linear-gradient(to bottom, #dcac62 0%, #ca9953 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFDCAB62', endColorstr='#FFCA9953', GradientType=0);
+}
+.wpcf7-response-output {
+  position: absolute;
+  right: 15px;
+  bottom: 20px;
+  background: #fff;
+  border-radius: 6px;
+}
+.projects-grid {
   padding: 0;
 }
-.taxonomy-projects .project {
+.projects-grid .post {
   position: relative;
 }
-.taxonomy-projects .project .article-header {
+.projects-grid .post .article-header {
   width: 256px;
   height: 168px;
   margin: 0 15px;
@@ -4033,27 +4066,36 @@ POSTS & CONTENT STYLES
   -o-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
 }
-.taxonomy-projects .project .article-header:hover {
+.projects-grid .post .article-header:hover {
   opacity: 1;
 }
-.taxonomy-projects .project .article-header a {
+.projects-grid .post .article-header a {
   display: inline-block;
   width: 256px;
   height: 168px;
   color: #fff;
   text-decoration: none;
 }
-.taxonomy-projects .project .article-header .title {
+.projects-grid .post .article-header .title {
   margin: 60px 0;
   font-size: 15px;
 }
-.taxonomy-projects .project .entry-content {
+.projects-grid .post .entry-content {
   padding: 3px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-.taxonomy-projects .project .entry-content img {
+.projects-grid .post .entry-content img {
   margin: 0;
+}
+.projects-category {
+  padding-bottom: 80px;
+}
+.block-related-posts {
+  padding-bottom: 80px;
+}
+.block-related-posts .block-title {
+  padding-left: 15px;
 }
 .hentry {
   background-color: #fff;
@@ -4327,8 +4369,7 @@ FOOTER STYLES
 }
 .footer {
   clear: both;
-  height: 254px;
-  background: url(../images/footer-bg.jpg) repeat-x left bottom;
+  background: url(../images/footer-bg.jpg) repeat left bottom;
 }
 .footer-top {
   height: 26px;
@@ -4341,6 +4382,7 @@ FOOTER STYLES
 .footer-block {
   float: right;
   width: 250px;
+  margin-bottom: 20px;
 }
 .footer-block .map {
   display: block;

@@ -21,7 +21,47 @@
 
 					<div class="block-home-categories col-md-12">
 
-						<?php foreach (get_terms('project_cat', array('orderby' => 'none')) as $cat) : ?>
+						<?php
+						$args = array(
+				    	    'orderby'	   	=> 'none',
+							'exclude'		=> 1,
+				    	    'hide_empty'    => 1,
+							'parent'		=> 0,
+							'hierarchical' 	=> 1,
+				    	    'taxonomy' 		=>'category',
+				    	);
+				    	$categories = get_categories($args);
+				    	foreach( $categories as $category ):
+						?>
+						<div class="col-md-4">
+							<div class="item">
+								<a href="<?php echo get_term_link($category->slug, 'category'); ?>">
+									<div class="image">
+										<img src="<?php echo z_taxonomy_image_url($category->term_id); ?>" />
+									</div>
+									<h3 class="title"><?php echo $category->name; ?></h3>
+								</a>
+								<div class="desc"><?php echo $category->description; ?></div>
+								<ul>
+								<?php $termchildren = get_term_children( $category->term_id, 'category' ); ?>
+								<?php foreach ( $termchildren as $key=>$child ): ?>
+									<?php if($key < 5): ?>
+									<?php $term = get_term_by( 'id', $child, 'category' ); ?>
+									<li>
+										<a href="<?php echo get_term_link( $child, 'category' ) ?>">
+											<?php echo $term->name ?>
+										</a>
+									</li>
+									<?php endif; ?>
+								<?php endforeach; ?>
+							</div>
+						</div>
+						<?php endforeach; ?>
+
+
+
+						<?php /*
+						foreach (get_terms('category', array('orderby' => 'none')) as $cat) : ?>
 							<div class="col-md-4">
 								<div class="item">
 									<a href="<?php echo get_term_link($cat->slug, 'project_cat'); ?>">
@@ -46,7 +86,8 @@
 									</ul>
 								</div>
 							</div>
-						<?php endforeach; ?>
+						<?php endforeach;
+						*/ ?>
 
 					</div>
 

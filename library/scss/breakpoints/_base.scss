@@ -199,6 +199,10 @@ BUTTONS STYLES
 	font-weight: normal;
 }
 
+.btn-order {
+	white-space: normal;
+}
+
 .btn-green {
   	@extend %btn;
 	@include gradient-vertical(#87a816, #627d03);
@@ -211,21 +215,6 @@ BUTTONS STYLES
   }
 }
 
-.wpcf7-submit {
-	@extend %btn;
-	padding: 12px 40px;
-	border-radius: 6px;
-	text-transform: uppercase;
-	@include gradient-vertical(#e1b777, #ca9953);
-    &:hover,
-    &:focus {
-  	  @include gradient-vertical(darken(#e1b777, 4%), #ca9953);
-    }
-    &:active {
-  	  @include gradient-vertical(darken(#e1b777, 5%), #ca9953);
-    }
-}
-
 
 /*********************
 HEADER STYLES
@@ -234,10 +223,38 @@ HEADER STYLES
 .header {
 	height: 363px;
 	background: url(../images/header-bg.jpg) no-repeat top center;
+
+	.logo {
+		margin: 40px 0;
+	}
+
+	.tools {
+		position: absolute;
+		right: 240px;
+		top: 60px;
+		width: 210px;
+		text-align: right;
+		.phone {
+			padding-left: 20px;
+			font-size: 20px;
+			color: #7a4c17;
+			background: url(../images/phone-icon.png) no-repeat 0px 10px;
+			span {
+				font-size: 26px;
+				font-weight: bold;
+			}
+		}
+		.adress {
+			font-size: 16px;
+			line-height: 18px;
+			text-decoration: underline;
+			color: #76940e;
+		}
+	}
 }
 
 #tools {
-	
+
 }
 
 /*********************
@@ -336,7 +353,7 @@ and more scalable.
 } /* end .nav */
 
 .breadcrumbs {
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 	padding-left: 15px;
 	color: #aaaaaa;
 	font-size: 14px;
@@ -493,15 +510,15 @@ POSTS & CONTENT STYLES
 .feedback {
 	height: 300px;
 	padding: 10px 20px 10px 420px;
-	background: url(../images/feedback-bg.jpg) no-repeat left top;
+	background: url(../images/feedback-bg.jpg) no-repeat left bottom;
 	background-size: 100% auto;
 	&-man {
 		width: 365px;
 		height: 355px;
 		position: absolute;
-		bottom: 26px;
+		bottom: 16px;
 		left: 0;
-		background: url(../images/feedback-man.png) no-repeat left top;
+		background: url(../images/feedback-man.png) no-repeat left bottom;
 	}
 	&-title {
 		font-size: 23px;
@@ -530,12 +547,32 @@ POSTS & CONTENT STYLES
 }
 
 
-.taxonomy-projects {
-	padding-bottom: 80px;
-	.projects-grid {
-		padding: 0;
-	}
-	.project {
+.wpcf7-submit {
+	@extend %btn;
+	padding: 12px 40px;
+	border-radius: 6px;
+	text-transform: uppercase;
+	@include gradient-vertical(#e1b777, #ca9953);
+    &:hover,
+    &:focus {
+  	  @include gradient-vertical(darken(#e1b777, 4%), #ca9953);
+    }
+    &:active {
+  	  @include gradient-vertical(darken(#e1b777, 5%), #ca9953);
+    }
+}
+
+.wpcf7-response-output  {
+	position: absolute;
+	right: 15px;
+	bottom: 20px;
+	background: #ffffff;
+	border-radius: 6px;
+}
+
+.projects-grid {
+	padding: 0;
+	.post {
 		position: relative;
 		.article-header {
 			width: 256px;
@@ -565,15 +602,29 @@ POSTS & CONTENT STYLES
 			}
 		}
 		.entry-content {
-    		padding: 3px;
-    		border: 1px solid #cccccc;
-    		border-radius: 4px;
+			padding: 3px;
+			border: 1px solid #cccccc;
+			border-radius: 4px;
 			img {
 				margin: 0;
 			}
 		}
 	}
 }
+
+
+.projects-category {
+	padding-bottom: 80px;
+
+}
+
+.block-related-posts {
+	padding-bottom: 80px;
+	.block-title {
+		padding-left: 15px;
+	}
+}
+
 		.hentry {
 			background-color: $white;
 			margin-bottom: 1.5em;
@@ -930,8 +981,7 @@ FOOTER STYLES
 
 .footer {
 	clear: both;
-	height: 254px;
-	background: url(../images/footer-bg.jpg) repeat-x left bottom;
+	background: url(../images/footer-bg.jpg) repeat left bottom;
 	&-top {
 		height: 26px;
 		background: url(../images/footer-top.jpg) repeat-x left top;
@@ -943,6 +993,7 @@ FOOTER STYLES
 	&-block {
 		float: right;
 		width: 250px;
+		margin-bottom: 20px;
 		.map {
 			display: block;
 		}
