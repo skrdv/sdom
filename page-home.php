@@ -37,11 +37,11 @@
 										<?php if($key < 5): ?>
 										<?php $term = get_term_by( 'id', $child, 'project_cat' ); ?>
 										<li>
-											<a href="<?php echo get_term_link( $child, $taxonomy_name ) ?>">
+											<a href="<?php echo get_term_link( $child, 'project_cat' ) ?>">
 												<?php echo $term->name ?>
 											</a>
 										</li>
-									<?php endif; ?>
+										<?php endif; ?>
 									<?php endforeach; ?>
 									</ul>
 								</div>

@@ -12,7 +12,7 @@ sidebars, comments, etc.
 require_once( 'library/bones.php' );
 
 // CUSTOMIZE THE WORDPRESS ADMIN (off by default)
-// require_once( 'library/admin.php' );
+require_once( 'library/admin.php' );
 
 /*********************
 LAUNCH BONES
@@ -28,7 +28,7 @@ function bones_ahoy() {
   load_theme_textdomain( 'bonestheme', get_template_directory() . '/library/translation' );
 
   // USE THIS TEMPLATE TO CREATE CUSTOM POST TYPES EASILY
-  require_once( 'library/project-post-type.php' );
+  //require_once( 'library/project-post-type.php' );
 
   // launching operation cleanup
   add_action( 'init', 'bones_head_cleanup' );
@@ -270,7 +270,6 @@ add_action('wp_enqueue_scripts', 'add_fonts');
 /************* CUSTOM DEFINES *************/
 
 define('WP_SCSS_ALWAYS_RECOMPILE', true);
-define('CONCATENATE_SCRIPTS', false );
 
 
 

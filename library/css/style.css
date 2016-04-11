@@ -3758,6 +3758,8 @@ HEADER STYLES
 .header {
   height: 363px;
   background: url(../images/header-bg.jpg) no-repeat top center;
+}
+#tools {
   /*********************
 NAVIGATION STYLES
 *********************/
@@ -3830,17 +3832,54 @@ and more scalable.
   /* end current highlighters */
 }
 .breadcrumbs {
+  margin-bottom: 15px;
   padding-left: 15px;
   color: #aaa;
   font-size: 14px;
-  /*********************
-SIDEBAR & BLOCK STYLES
-*********************/
 }
 .breadcrumbs a {
   color: #aaa;
   font-size: 14px;
   text-decoration: underline;
+}
+.page-navi {
+  /*********************
+SIDEBAR & BLOCK STYLES
+*********************/
+}
+.page-navi span {
+  vertical-align: top;
+  line-height: 32px;
+}
+.page-navi .pagination {
+  display: inline-block;
+  margin: 0;
+}
+.page-navi .pagination .page-numbers {
+  margin: 0;
+}
+.page-navi .pagination .current {
+  color: #fff;
+  background: #b53f26;
+  text-decoration: none;
+}
+.page-navi .pagination .next {
+  text-decoration: none;
+}
+.page-navi .pagination li {
+  border: none;
+  margin-right: 1px;
+}
+.page-navi .pagination a, .page-navi .pagination span {
+  padding: 8px 6px;
+  border-radius: 4px;
+  color: #a0552d;
+  text-decoration: underline;
+}
+.page-navi .pagination a:hover {
+  color: #fff;
+  background: #b53f26;
+  text-decoration: none;
 }
 .block-title {
   display: inline-block;
@@ -3879,6 +3918,7 @@ SIDEBAR & BLOCK STYLES
 }
 .block-home-categories .item .title {
   margin: 10px 0;
+  font-size: 23px;
 }
 .block-home-categories .item .desc {
   text-align: left;
@@ -3886,6 +3926,18 @@ SIDEBAR & BLOCK STYLES
   font-size: 13px;
   line-height: 15px;
   color: #a18c7c;
+}
+.block-sub-categories {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 5px solid #cba36f;
+}
+.block-sub-categories .item {
+  display: inline-block;
+}
+.block-sub-categories .item .title {
+  margin: 10px 30px;
 }
 .block-works {
   min-height: 200px;
@@ -3929,12 +3981,13 @@ POSTS & CONTENT STYLES
   width: 365px;
   height: 355px;
   position: absolute;
-  top: -70px;
+  bottom: 26px;
   left: 0;
   background: url(../images/feedback-man.png) no-repeat left top;
 }
 .feedback-title {
   font-size: 23px;
+  font-weight: bold;
 }
 .feedback-title span {
   color: #b33a1d;
@@ -3959,6 +4012,49 @@ POSTS & CONTENT STYLES
 .taxonomy-projects {
   padding-bottom: 80px;
 }
+.taxonomy-projects .projects-grid {
+  padding: 0;
+}
+.taxonomy-projects .project {
+  position: relative;
+}
+.taxonomy-projects .project .article-header {
+  width: 256px;
+  height: 168px;
+  margin: 0 15px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-align: center;
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
+}
+.taxonomy-projects .project .article-header:hover {
+  opacity: 1;
+}
+.taxonomy-projects .project .article-header a {
+  display: inline-block;
+  width: 256px;
+  height: 168px;
+  color: #fff;
+  text-decoration: none;
+}
+.taxonomy-projects .project .article-header .title {
+  margin: 60px 0;
+  font-size: 15px;
+}
+.taxonomy-projects .project .entry-content {
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.taxonomy-projects .project .entry-content img {
+  margin: 0;
+}
 .hentry {
   background-color: #fff;
   margin-bottom: 1.5em;
@@ -3976,26 +4072,6 @@ POSTS & CONTENT STYLES
 }
 .archive {
   /* want to style individual post classes? Booya! */
-}
-.archive .project {
-  position: relative;
-}
-.archive .project .article-header {
-  width: 256px;
-  height: 168px;
-  margin: 0 15px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-color: rgba(0, 0, 0, 0.4);
-  text-align: center;
-  opacity: 0;
-}
-.archive .project .article-header:hover {
-  opacity: 1;
-}
-.archive .project .article-header a {
-  color: #fff;
 }
 .post-id {
   /* post by id (i.e. post-3) */

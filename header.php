@@ -48,19 +48,15 @@
 
 				<div id="inner-header" class="container cf">
 
-					<div id="logo" itemscope itemtype="http://schema.org/Organization">
+					<div class="logo" itemscope itemtype="http://schema.org/Organization">
 						<a href="<?php echo home_url(); ?>" rel="nofollow">
 							<img src="<?php echo get_template_directory_uri(); ?>/library/images/logo.png" />
 						</a>
 					</div>
 
-					<div id="tools">
-						<div class="phone">
-							8 (812) <span>966-87-59</span>
-						</div>
-						<div class="adress">
-							С-Пб, Волковский пр., 12
-						</div>
+					<div class="tools">
+						<div class="phone">8 (812) <span>966-87-59</span></div>
+						<div class="adress">С-Пб, Волковский пр., 12</div>
 					</div>
 
 				</div>
