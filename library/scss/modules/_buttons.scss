@@ -30,61 +30,51 @@ http://www.youtube.com/watch?v=hwdVpKiJzac
   font-family: $sans-serif;
   text-decoration: none;
   color: $white;
-  font-size: 0.9em;
-  font-size: 34px;
-  line-height: 34px;
-  font-weight: normal;
-  padding: 0 24px;
+  // font-size: 0.9em;
+  // font-size: 34px;
+  // line-height: 34px;
+  // font-weight: normal;
+  // padding: 0 24px;
   border-radius: 4px;
   border: 0;
   cursor: pointer;
   @include transition(background-color 0.14s ease-in-out);
 
-  // hovering on the btn
   &:hover, &:focus {
     color: $white;
     text-decoration: none;
     outline: none;
-  } // end hover
+  }
 
-  // clicking on the button
   &:active {
-    top: 1px; // adds a tiny hop to the click
-  } // end active
+    top: 1px;
+  }
 
-} // end .button
+}
 
-/*
-An example button.
-You can use this example if you want. Just replace all the variables
-and it will create a button dependant on those variables.
-*/
-.blue-btn {
-  @extend %btn; // here we load the btn defaults
-  background-color: $blue;
-
+.btn-brown {
+  @extend %btn;
+  background-color: #e1b777;
+  @include gradient-vertical(#e1b777, #ca9953);
   &:hover,
   &:focus {
-    background-color: darken($blue, 4%);
-  } // end hover
-
+	  @include gradient-vertical(darken(#e1b777, 4%), #ca9953);
+  }
   &:active {
-    background-color: darken($blue, 5%);
-  } // end active
+	  @include gradient-vertical(darken(#e1b777, 5%), #ca9953);
+  }
 
-} // end blue button
+}
 
-.green-btn {
-  	@extend %btn; // here we load the btn defaults
-  	background-color: $blue;
-	@include css-gradient(#87a816,#627d03);
+.btn-green {
+  	@extend %btn;
+	background-color: #87a816;
+	@include gradient-vertical(#87a816, #627d03);
   &:hover,
   &:focus {
-    background-color: darken($blue, 4%);
-  } // end hover
-
+	  @include gradient-vertical(darken(#87a816, 4%), #627d03);
+  }
   &:active {
-    background-color: darken($blue, 5%);
-  } // end active
-
-} // end blue button
+    @include gradient-vertical(darken(#87a816, 5%), #627d03);
+  }
+}

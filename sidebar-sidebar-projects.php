@@ -1,4 +1,4 @@
-<div id="sidebar-projects" class="sidebar m-all col-md-3 cf" role="complementary">
+<div id="sidebar-projects" class="block-sidebar-projects m-all col-md-3 cf" role="complementary">
 	<div class="inner">
 		<?php if ( is_active_sidebar( 'sidebar-projects' ) ) : ?>
 			<?php dynamic_sidebar( 'sidebar-projects' ); ?>

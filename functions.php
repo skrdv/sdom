@@ -259,7 +259,8 @@ can replace these fonts, change it in your scss files
 and be up and running in seconds.
 */
 function add_fonts() {
- // wp_enqueue_style('googleFonts', 'http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic');
+	wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic');
+	wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin,cyrillic');
 	wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600&subset=latin,cyrillic');
 }
 
@@ -270,13 +271,6 @@ add_action('wp_enqueue_scripts', 'add_fonts');
 
 define('WP_SCSS_ALWAYS_RECOMPILE', true);
 
-/**
- * Add custom styles
- */
-function add_bootstrap() {
-    wp_enqueue_style( 'bootstrap', get_template_directory_uri(). '/library/css/bootstrap.css', false );
-}
-add_action( 'wp_enqueue_scripts', 'add_bootstrap' );
 
 
 
@@ -303,19 +297,6 @@ function gallery_slider_template($images) {
   include 'gallery-slider.php';
   $output = ob_get_clean();
   return $output;
-}
-
-function catch_first_image() {
-  global $post, $posts;
-  $first_img = '';
-  ob_start();
-  ob_end_clean();
-  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
-  $first_img = $matches [1] [0];
-  if(empty($first_img)) {
-    $first_img = "/images/default.jpg"; // Ссылка на изображение-заглушку, если в посте оно не найдено
-  }
-  return $first_img;
 }
 
 

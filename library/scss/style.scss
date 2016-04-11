@@ -23,23 +23,43 @@ our mixins, functions, and variables that we'll be using across
 the whole project.
 *********************/
 
+// Core variables and mixins
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+// Reset and dependencies
+@import "bootstrap/normalize";
+@import "bootstrap/print";
+@import "bootstrap/glyphicons";
+
+// Core CSS
+@import "bootstrap/scaffolding";
+@import "bootstrap/type";
+@import "bootstrap/code";
+@import "bootstrap/grid";
+@import "bootstrap/tables";
+@import "bootstrap/forms";
+@import "bootstrap/buttons";
+
 // normalize: http://necolas.github.io/normalize.css/
 @import "partials/normalize";
 
 // Sass variables
-@import "partials/variables";
+// @import "partials/variables";
 
 // typography
-@import "partials/typography";
+// @import "partials/typography";
 
 // Sass functions
-@import "partials/functions";
+// @import "partials/functions";
 
 // import mixins
-@import "partials/mixins";
+// @import "partials/mixins";
 
 // the grid
 // @import "partials/grid";
+
+
 
 /*********************
 IMPORTING MODULES
@@ -50,10 +70,10 @@ you hate oysters, then the world is your peanut butter & jelly sandwich.
 *********************/
 
 // alert boxes
-@import "modules/alerts";
+// @import "modules/alerts";
 
 // buttons
-@import "modules/buttons";
+// @import "modules/buttons";
 
 // forms (inputs & labels)
 @import "modules/forms";

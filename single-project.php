@@ -98,20 +98,16 @@
 											</div>
 										</div>
 
-										<button class="green-btn order">Перейти к оформлению заказа</button>
+										<button class="btn btn-lg btn-green order">Перейти к оформлению заказа</button>
 
 									</div>
-
-
-
-								</section> <!-- end article section -->
+								</section>
 
 								<footer class="article-footer">
-
-
+									<div class="block-relative">
+										<h4 class="block-title">Возможно вас заинтересует:</h4>
+									</div>
 								</footer>
-
-
 
 							</article>
 
@@ -137,7 +133,8 @@
 
 						<?php get_sidebar('sidebar-projects'); ?>
 
-						<div id="feedback" class="feedback col-md-12">
+						<div class="feedback col-md-12">
+							<div class="feedback-man"></div>
 							<div class="feedback-title">У вас появился <span>вопрос?</span></div>
 							<div class="feedback-desc">немедленно задайте его нам!</div>
 							<?php echo do_shortcode( '[contact-form-7 id="20" title="Контактная форма"]' ); ?>
