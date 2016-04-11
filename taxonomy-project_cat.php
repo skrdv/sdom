@@ -18,7 +18,7 @@
 
 				<div id="inner-content" class="container cf">
 
-						<main id="main" class="m-all cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+						<main id="main" class="taxonomy-projects m-all cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 							<div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
 								<?php if(function_exists('bcn_display')) { bcn_display(); } ?>

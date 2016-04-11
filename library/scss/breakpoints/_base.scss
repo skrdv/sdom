@@ -195,6 +195,10 @@ BUTTONS STYLES
 
 }
 
+.btn-more {
+	font-weight: normal;
+}
+
 .btn-green {
   	@extend %btn;
 	@include gradient-vertical(#87a816, #627d03);
@@ -356,6 +360,48 @@ SIDEBAR & BLOCK STYLES
 	}
 }
 
+.block-home-categories {
+	padding: 10px;
+	margin-bottom: 15px;
+	border-radius: 5px;
+	border: 5px solid #cba36f;
+	.item {
+		height: 300px;
+		padding: 0 60px;
+		margin-bottom: 20px;
+		text-align: center;
+		a {
+			color: #894e23;
+			text-transform: uppercase;
+			text-decoration: none;
+			&:hover,
+			&:focus {
+				color: #88a917;
+			}
+		}
+		.image {
+			height: 132px;
+			img {
+				vertical-align: bottom;
+			}
+		}
+		.title {
+			margin: 10px 0;
+		}
+		.desc {
+			text-align: left;
+			padding-left: 10px;
+			font-size: 13px;
+			line-height: 15px;
+			color: #a18c7c;
+		}
+	}
+}
+
+.block-works {
+	min-height: 200px;
+}
+
 .block-sidebar-projects {
 	padding: 0;
 	margin-bottom: 15px;
@@ -388,13 +434,6 @@ POSTS & CONTENT STYLES
 
 #content {
 	margin-top: 13px;
-}
-
-#block-project-categories {
-	padding: 10px;
-	margin-bottom: 15px;
-	border-radius: 5px;
-	border: 5px solid #cba36f;
 }
 
 .feedback {
@@ -435,6 +474,10 @@ POSTS & CONTENT STYLES
 	}
 }
 
+
+.taxonomy-projects {
+	padding-bottom: 80px;
+}
 		.hentry {
 			background-color: $white;
 			margin-bottom: 1.5em;
@@ -453,7 +496,6 @@ POSTS & CONTENT STYLES
 
 		.block-title {
 			margin: 0.3em 0 0.6em 0;
-			padding-left: 15px;
 			font-size: 18px;
 			color: #6b6968;
 		}
@@ -467,17 +509,20 @@ POSTS & CONTENT STYLES
 			.project {
 				position: relative;
 				.article-header {
-					width: 260px;
-					height: 170px;
+					width: 256px;
+					height: 168px;
 					margin: 0 15px;
 					position: absolute;
 					left: 0;
 					top: 0;
-					background-color: rgba(0,0,0,0.5);
+					background-color: rgba(0,0,0,0.4);
 					text-align: center;
 					opacity: 0;
 					&:hover {
 						opacity: 1;
+					}
+					a {
+						color: $white;
 					}
 				}
 			}

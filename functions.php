@@ -261,7 +261,7 @@ and be up and running in seconds.
 function add_fonts() {
 	wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic');
 	wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin,cyrillic');
-	wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600&subset=latin,cyrillic');
+	// wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600&subset=latin,cyrillic');
 }
 
 add_action('wp_enqueue_scripts', 'add_fonts');
@@ -270,6 +270,7 @@ add_action('wp_enqueue_scripts', 'add_fonts');
 /************* CUSTOM DEFINES *************/
 
 define('WP_SCSS_ALWAYS_RECOMPILE', true);
+define('CONCATENATE_SCRIPTS', false );
 
 
 

@@ -1240,7 +1240,7 @@ p {
   }
 }
 small, .small {
-  font-size: 86%;
+  font-size: 80%;
 }
 mark, .mark {
   background-color: #fcf8e3;
@@ -1454,7 +1454,7 @@ kbd {
   font-size: 90%;
   color: #fff;
   background-color: #333;
-  border-radius: 3px;
+  border-radius: 4px;
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .25);
 }
 kbd kbd {
@@ -2412,7 +2412,7 @@ input[type="search"] {
     line-height: 35px;
   }
   input[type="date"].input-sm, input[type="time"].input-sm, input[type="datetime-local"].input-sm, input[type="month"].input-sm, .input-group-sm input[type="date"], .input-group-sm input[type="time"], .input-group-sm input[type="datetime-local"], .input-group-sm input[type="month"] {
-    line-height: 31px;
+    line-height: 23px;
   }
   input[type="date"].input-lg, input[type="time"].input-lg, input[type="datetime-local"].input-lg, input[type="month"].input-lg, .input-group-lg input[type="date"], .input-group-lg input[type="time"], .input-group-lg input[type="datetime-local"], .input-group-lg input[type="month"] {
     line-height: 58px;
@@ -2475,39 +2475,39 @@ input[type="radio"][disabled], input[type="checkbox"][disabled], input[type="rad
   padding-right: 0;
 }
 .input-sm {
-  height: 31px;
-  padding: 5px 10px;
-  font-size: 13px;
-  line-height: 1.5;
-  border-radius: 3px;
+  height: 23px;
+  padding: 4px 10px;
+  font-size: 12px;
+  line-height: 1.1;
+  border-radius: 4px;
 }
 select.input-sm {
-  height: 31px;
-  line-height: 31px;
+  height: 23px;
+  line-height: 23px;
 }
 textarea.input-sm, select[multiple].input-sm {
   height: auto;
 }
 .form-group-sm .form-control {
-  height: 31px;
-  padding: 5px 10px;
-  font-size: 13px;
-  line-height: 1.5;
-  border-radius: 3px;
+  height: 23px;
+  padding: 4px 10px;
+  font-size: 12px;
+  line-height: 1.1;
+  border-radius: 4px;
 }
 .form-group-sm select.form-control {
-  height: 31px;
-  line-height: 31px;
+  height: 23px;
+  line-height: 23px;
 }
 .form-group-sm textarea.form-control, .form-group-sm select[multiple].form-control {
   height: auto;
 }
 .form-group-sm .form-control-static {
-  height: 31px;
-  min-height: 34px;
-  padding: 6px 10px;
-  font-size: 13px;
-  line-height: 1.5;
+  height: 23px;
+  min-height: 33px;
+  padding: 5px 10px;
+  font-size: 12px;
+  line-height: 1.1;
 }
 .input-lg {
   height: 58px;
@@ -2568,9 +2568,9 @@ textarea.input-lg, select[multiple].input-lg {
   line-height: 58px;
 }
 .input-sm + .form-control-feedback, .input-group-sm + .form-control-feedback, .form-group-sm .form-control + .form-control-feedback {
-  width: 31px;
-  height: 31px;
-  line-height: 31px;
+  width: 23px;
+  height: 23px;
+  line-height: 23px;
 }
 .has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline, .has-success.radio label, .has-success.checkbox label, .has-success.radio-inline label, .has-success.checkbox-inline label {
   color: #3c763d;
@@ -2729,8 +2729,8 @@ textarea.input-lg, select[multiple].input-lg {
 }
 @media (min-width: 768px) {
   .form-horizontal .form-group-sm .control-label {
-    padding-top: 6px;
-    font-size: 13px;
+    padding-top: 5px;
+    font-size: 12px;
   }
 }
 .btn {
@@ -3023,16 +3023,16 @@ a.btn.disabled, fieldset[disabled] a.btn {
   border-radius: 6px;
 }
 .btn-sm {
-  padding: 5px 10px;
-  font-size: 13px;
-  line-height: 1.5;
-  border-radius: 3px;
+  padding: 4px 10px;
+  font-size: 12px;
+  line-height: 1.1;
+  border-radius: 4px;
 }
 .btn-xs {
   padding: 1px 5px;
-  font-size: 13px;
-  line-height: 1.5;
-  border-radius: 3px;
+  font-size: 12px;
+  line-height: 1.1;
+  border-radius: 4px;
 }
 .btn-block {
   display: block;
@@ -3704,6 +3704,9 @@ BUTTONS STYLES
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFDCAB62', endColorstr='#FFCA9953', GradientType=0);
 }
+.btn-more {
+  font-weight: normal;
+}
 .btn-green {
   background-image: -webkit-linear-gradient(top, #87a816 0%, #627d03 100%);
   background-image: -o-linear-gradient(top, #87a816 0%, #627d03 100%);
@@ -3848,6 +3851,45 @@ SIDEBAR & BLOCK STYLES
 .block-btn-all {
   display: inline-block;
 }
+.block-home-categories {
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 5px solid #cba36f;
+}
+.block-home-categories .item {
+  height: 300px;
+  padding: 0 60px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.block-home-categories .item a {
+  color: #894e23;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+.block-home-categories .item a:hover, .block-home-categories .item a:focus {
+  color: #88a917;
+}
+.block-home-categories .item .image {
+  height: 132px;
+}
+.block-home-categories .item .image img {
+  vertical-align: bottom;
+}
+.block-home-categories .item .title {
+  margin: 10px 0;
+}
+.block-home-categories .item .desc {
+  text-align: left;
+  padding-left: 10px;
+  font-size: 13px;
+  line-height: 15px;
+  color: #a18c7c;
+}
+.block-works {
+  min-height: 200px;
+}
 .block-sidebar-projects {
   padding: 0;
   margin-bottom: 15px;
@@ -3876,12 +3918,6 @@ POSTS & CONTENT STYLES
 }
 #content {
   margin-top: 13px;
-}
-#block-project-categories {
-  padding: 10px;
-  margin-bottom: 15px;
-  border-radius: 5px;
-  border: 5px solid #cba36f;
 }
 .feedback {
   height: 300px;
@@ -3920,6 +3956,9 @@ POSTS & CONTENT STYLES
 .feedback-control.message {
   width: 100%;
 }
+.taxonomy-projects {
+  padding-bottom: 80px;
+}
 .hentry {
   background-color: #fff;
   margin-bottom: 1.5em;
@@ -3932,7 +3971,6 @@ POSTS & CONTENT STYLES
 }
 .block-title {
   margin: 0.3em 0 0.6em 0;
-  padding-left: 15px;
   font-size: 18px;
   color: #6b6968;
 }
@@ -3943,18 +3981,21 @@ POSTS & CONTENT STYLES
   position: relative;
 }
 .archive .project .article-header {
-  width: 260px;
-  height: 170px;
+  width: 256px;
+  height: 168px;
   margin: 0 15px;
   position: absolute;
   left: 0;
   top: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
   text-align: center;
   opacity: 0;
 }
 .archive .project .article-header:hover {
   opacity: 1;
+}
+.archive .project .article-header a {
+  color: #fff;
 }
 .post-id {
   /* post by id (i.e. post-3) */

@@ -1,6 +1,6 @@
 <?php
 /*
- Template Name: Home page
+ Template Name: Главная страница
  *
  * This is your custom page template. You can create as many of these as you need.
  * Simply name is "page-whatever.php" and in add the "Template Name" title at the
@@ -19,15 +19,32 @@
 
 				<div id="inner-content" class="container cf">
 
-					<div id="block-project-categories" class="col-md-12">
+					<div class="block-home-categories col-md-12">
 
-						<?php foreach (get_terms('project_cat') as $cat) : ?>
+						<?php foreach (get_terms('project_cat', array('orderby' => 'none')) as $cat) : ?>
 							<div class="col-md-4">
-								<a href="<?php echo get_term_link($cat->slug, 'project_cat'); ?>">
-									<img src="<?php echo z_taxonomy_image_url($cat->term_id); ?>" />
-									<h3><?php echo $cat->name; ?></h3>
-								</a>
-								<div class="description"><?php echo $cat->description; ?></div>
+								<div class="item">
+									<a href="<?php echo get_term_link($cat->slug, 'project_cat'); ?>">
+										<div class="image">
+											<img src="<?php echo z_taxonomy_image_url($cat->term_id); ?>" />
+										</div>
+										<h3 class="title"><?php echo $cat->name; ?></h3>
+									</a>
+									<div class="desc"><?php echo $cat->description; ?></div>
+									<?php $termchildren = get_term_children( $cat->term_id, 'project_cat' ); ?>
+									<ul>
+									<?php foreach ( $termchildren as $key=>$child ): ?>
+										<?php if($key < 5): ?>
+										<?php $term = get_term_by( 'id', $child, 'project_cat' ); ?>
+										<li>
+											<a href="<?php echo get_term_link( $child, $taxonomy_name ) ?>">
+												<?php echo $term->name ?>
+											</a>
+										</li>
+									<?php endif; ?>
+									<?php endforeach; ?>
+									</ul>
+								</div>
 							</div>
 						<?php endforeach; ?>
 
@@ -37,61 +54,12 @@
 
 					<main id="main" class="m-all col-md-9 cf homepage" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
-						<div id="block-works" class="block">
-							<header class="block-header">
-								<h3 class="block-title">Наши работы</h3>
-								<a class="block-btn-all btn btn-sm" href="/articles">смотрт все</a>
-							</header>
-							<?php
-							$args = array ( 'cat' => '17', 'posts_per_page' => '2' );
-							$query = new WP_Query( $args );
-							if ( $query->have_posts() ) {
-								while ( $query->have_posts() ) {
-									$query->the_post();
-									the_title();
-									echo '<div class="entry-content">';
-									the_content();
-									echo '</div>';
-								}
-							} else {
-								echo'<p>В категории нет записей.</p>';
-							}
-							wp_reset_postdata();
-							?>
-						</div>
-
-						<div id="block-articles" class="block">
-							<header class="block-header">
-								<h3 class="block-title">Интересные статьи</h3>
-								<a class="block-btn-all btn btn-sm" href="/articles">смотрт все</a>
-							</header>
-							<?php
-							$args = array( 'cat' => '18', 'posts_per_page' => '2' );
-							$loop = new WP_Query( $args );
-							while ( $loop->have_posts() ) : $loop->the_post();
-							the_title();
-							echo '<div class="entry-content">';
-							the_content();
-							echo '</div>';
-							endwhile;
-							?>
-						</div>
-
-
-
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
 						<article id="post-<?php the_ID(); ?>" <?php post_class( 'cf' ); ?> role="article" itemscope itemtype="http://schema.org/BlogPosting">
 
 							<header class="article-header">
-
 								<h1 class="page-title"><?php the_title(); ?></h1>
-
-								<p class="byline vcard">
-									<?php printf( __( 'Posted <time class="updated" datetime="%1$s" itemprop="datePublished">%2$s</time> by <span class="author">%3$s</span>', 'bonestheme' ), get_the_time('Y-m-j'), get_the_time(get_option('date_format')), get_the_author_link( get_the_author_meta( 'ID' ) )); ?>
-								</p>
-
-
 							</header>
 
 							<section class="entry-content cf" itemprop="articleBody">
@@ -120,13 +88,45 @@
 								?>
 							</section>
 
+							<div class="block block-works">
+								<header class="block-header">
+									<h3 class="block-title">Наши работы</h3>
+									<a class="btn btn-sm btn-brown btn-more" href="/articles">смотрт все</a>
+								</header>
+								<?php /*
+								$args = array ( 'post_type' => array( 'project' ), 'posts_per_page' => '6' );
+								$query = new WP_Query( $args );
+								if ( $query->have_posts() ) {
+									while ( $query->have_posts() ) {
+										$query->the_post();
+										the_title();
+										echo '<div class="entry-content">';
+										the_content();
+										echo '</div>';
+									}
+								} else {
+									echo'<p>В категории нет записей.</p>';
+								}
+								wp_reset_postdata();
+								*/ ?>
+							</div>
 
-							<footer class="article-footer">
-
-							<?php the_tags( '<p class="tags"><span class="tags-title">' . __( 'Tags:', 'bonestheme' ) . '</span> ', ', ', '</p>' ); ?>
-
-							</footer>
-
+							<div class="block block-articles">
+								<header class="block-header">
+									<h3 class="block-title">Интересные статьи</h3>
+									<a class="btn btn-sm btn-brown btn-more" href="/articles">смотрт все</a>
+								</header>
+								<?php
+								$args = array( 'cat' => '18', 'posts_per_page' => '2' );
+								$loop = new WP_Query( $args );
+								while ( $loop->have_posts() ) : $loop->the_post();
+								the_title();
+								echo '<div class="entry-content">';
+								the_content();
+								echo '</div>';
+								endwhile;
+								?>
+							</div>
 
 						</article>
 
