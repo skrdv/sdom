@@ -1,10 +1,9 @@
 <?php get_header(); ?>
 
 			<div id="content">
+				<div id="inner-content" class="container cf">
 
-				<div id="inner-content" class="wrap cf">
-
-					<main id="main" class="m-all col-md-9 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+					<main id="main" class="col-md-9 cf" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 						<div class="breadcrumbs" typeof="BreadcrumbList" vocab="http://schema.org/">
 							<?php if(function_exists('bcn_display')) { bcn_display(); } ?>
@@ -12,9 +11,7 @@
 
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
-							<?php
-								get_template_part( 'post-formats/format', get_post_format() );
-							?>
+							<?php get_template_part( 'post-formats/format', get_post_format() ); ?>
 
 						<?php endwhile; ?>
 
@@ -36,7 +33,7 @@
 
 					</main>
 
-					<?php get_sidebar('sidebar-projects'); ?>
+					<?php get_sidebar('categories'); ?>
 
 					<div class="feedback col-md-12">
 						<div class="feedback-man"></div>

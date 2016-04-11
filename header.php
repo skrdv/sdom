@@ -80,7 +80,6 @@
 								 'fallback_cb' => ''                             // fallback function (if there is one)
 						)); ?>
 					</nav>
-					<a id="calc" href="/calculator" class="nav flo-right"></a>
 				</div>
 
 			</div>

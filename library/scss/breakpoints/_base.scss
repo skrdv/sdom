@@ -195,14 +195,6 @@ BUTTONS STYLES
 
 }
 
-.btn-more {
-	font-weight: normal;
-}
-
-.btn-order {
-	white-space: normal;
-}
-
 .btn-green {
   	@extend %btn;
 	@include gradient-vertical(#87a816, #627d03);
@@ -214,6 +206,28 @@ BUTTONS STYLES
     @include gradient-vertical(darken(#87a816, 5%), #627d03);
   }
 }
+
+.btn {
+	&-more {
+		font-weight: normal;
+	}
+	&-order {
+		white-space: normal;
+	}
+	&-white {
+		color: #c48e42;
+		border-color: #c48e42;
+		border-radius: 3px;
+		font-weight: normal;
+		padding: 6px 16px;
+		font-size: 13px;
+		&:hover, &:focus {
+			color: #a3513d;
+			border-color: #a3513d;
+		}
+	}
+}
+
 
 
 /*********************
@@ -278,16 +292,6 @@ and more scalable.
 		background-size: 100% auto;
 	}
 
-	#calc {
-		display: block;
-		position: absolute;
-		right: 13px;
-		top: 13px;
-		width: 147px;
-		height: 44px;
-		background: url(../images/calc-icon.png) no-repeat left top;
-	}
-
 	ul {
 		margin: 0;
 	}
@@ -304,7 +308,7 @@ and more scalable.
 			text-transform: uppercase;
 			font-weight: bold;
 			&:first-child {
-				padding-left: 15px;
+
 			}
 			/*
 			remember this is for mobile ONLY, so there's no need
@@ -313,11 +317,22 @@ and more scalable.
 			keep this file as small as possible!
 			*/
 			&:hover, &:focus {
-
+				color: $white;
+				text-decoration: underline;
 			}
 		}
-		&:first-child {}
-		&:last-child {}
+		&:first-child {
+			padding-left: 15px;
+		}
+		&:last-child {
+			display: block;
+			float: right;
+			margin-top: 12px;
+			text-indent: -9999px;
+			width: 147px;
+			height: 44px;
+			background: url(../images/calc-icon.png) no-repeat left top;
+		}
 
 		/*
 		so you really have to rethink your dropdowns for mobile.
@@ -423,8 +438,8 @@ SIDEBAR & BLOCK STYLES
 	border-radius: 5px;
 	border: 5px solid #cba36f;
 	.item {
-		height: 300px;
-		padding: 0 60px;
+		min-height: 300px;
+		padding: 0 30px;
 		margin-bottom: 20px;
 		text-align: center;
 		a {
@@ -469,11 +484,15 @@ SIDEBAR & BLOCK STYLES
 	}
 }
 
-.block-works {
+.block-home-works {
 	min-height: 200px;
 }
 
-.block-sidebar-projects {
+.block-home-articles {
+	min-height: 200px;
+}
+
+.sidebar-categories {
 	padding: 0;
 	margin-bottom: 15px;
 	border-radius: 5px;
@@ -498,6 +517,17 @@ SIDEBAR & BLOCK STYLES
 	}
 }
 
+
+.sidebar {
+	.banner {
+		display: block;
+		margin-bottom: 15px;
+		img {
+			width: 100%;
+			height: auto;
+		}
+	}
+}
 
 /*********************
 POSTS & CONTENT STYLES
@@ -573,39 +603,53 @@ POSTS & CONTENT STYLES
 .projects-grid {
 	padding: 0;
 	.post {
-		position: relative;
-		.article-header {
-			width: 256px;
-			height: 168px;
+
+
+		.project-header {
+			// width: 256px;
+			// height: 168px;
 			margin: 0 15px;
-			position: absolute;
-			left: 0;
-			top: 0;
-			text-align: center;
-			border-radius: 4px;
-			background-color: rgba(0,0,0,0.6);
-			opacity: 0;
-			@include transition(opacity 0.2s ease-in-out);
-			&:hover {
-				opacity: 1;
-			}
+
 			a {
-				display: inline-block;
-				width: 256px;
-				height: 168px;
-				color: $white;
-				text-decoration: none;
+
 			}
 			.title {
-				margin: 60px 0;
-				font-size: 15px;
+
 			}
 		}
-		.entry-content {
-			padding: 3px;
+		.project-content {
+			position: relative;
+			overflow: hidden;
 			border: 1px solid #cccccc;
 			border-radius: 4px;
+			padding: 3px;
+			.cover {
+				position: absolute;
+				left: 0;
+				top: 0;
+				text-align: center;
+				display: inline-block;
+				width: 100%;
+				height: auto;
+				min-height: 170px;
+				text-decoration: none;
+				border-radius: 4px;
+				background-color: rgba(0,0,0,0.6);
+				opacity: 0;
+				@include transition(opacity 0.2s ease-in-out);
+				&:hover {
+					opacity: 1;
+				}
+				.title {
+					padding: 50px 0 110px 0;
+					font-size: 15px;
+					line-height: 20px;
+					color: $white;
+				}
+			}
 			img {
+				width: 100%;
+				height: auto;
 				margin: 0;
 			}
 		}
@@ -633,38 +677,51 @@ POSTS & CONTENT STYLES
 
 		.single-title,
 		.archive-title,
+		.category-title,
 		.page-title,
 		.entry-title {
-			margin: 0.3em 0 0.6em 0;
-			padding-left: 15px;
-			font-family: 'PT Sans', sans-serif;
+			margin: 0 0 0.6em 0;
 			color: #a3513d;
 		}
 
 		.block-title {
-			margin: 0.3em 0 0.6em 0;
+			margin: 0.6em 0.6em 0.6em 0;
 			font-size: 18px;
+			font-size: 23px;
 			color: #6b6968;
+			color: #a3513d;
+			vertical-align: middle;
 		}
 
-		.single-title {}
+		.single-title {
+			padding-left: 15px;
+		}
 		.page-title {}
 		.entry-title {}
 		.archive-title {}
 
-		.archive {
-
+		.category-description {
+			margin-bottom: 0.6em;
 		}
 
-		/* want to style individual post classes? Booya! */
-		.post-id {}         /* post by id (i.e. post-3) */
-		.post {}            /* general post style */
-		.page {}            /* general article on a page style */
-		.attachment {}      /* general style on an attatchment */
-		.sticky {}          /* sticky post style */
-		.hentry {}          /* hentry class */
-		.category-slug {}   /* style by category (i.e. category-videos) */
-		.tag-slug {}        /* style by tag (i.e. tag-news) */
+		.archive {}
+		.post-id {}
+		.post {}
+		.page {
+			.home {
+				.page-title {
+					margin-top: 0;
+				}
+			}
+		}
+		.attachment {}
+		.sticky {}
+		.hentry {}
+		.category-slug {}
+		.tag-slug {}
+
+
+
 
 		/* post meta */
 		.byline {
@@ -677,6 +734,7 @@ POSTS & CONTENT STYLES
 
 		/* entry content */
 		.entry-content {
+			display: inline-block;
 			padding: 0;
 
 			.slider {
@@ -748,7 +806,7 @@ POSTS & CONTENT STYLES
 
 
 			p {
-				margin: 0 0 1.5em;
+				margin: 0 0 1em;
 			}
 
 			table {
@@ -987,13 +1045,10 @@ FOOTER STYLES
 		background: url(../images/footer-top.jpg) repeat-x left top;
 	}
 	&-logo {
-		float: left;
 		margin-top: 20px;
 	}
-	&-block {
-		float: right;
-		width: 250px;
-		margin-bottom: 20px;
+	&-nav {
+		margin-bottom: 30px;
 		.map {
 			display: block;
 		}

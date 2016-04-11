@@ -319,10 +319,6 @@ HEADER STYLES
 NAVIGATION STYLES
 *********************/
 }
-.nav-inner {
-  width: 100%;
-  margin: 0 30px;
-}
 #nav {
   border: 0;
   /* end .nav */
@@ -345,10 +341,6 @@ SIDEBARS & ASIDES
 			has the possibility of being a mobile device.
 			*/
   border-bottom: 0;
-}
-#nav li a:hover, #nav li a:focus {
-  color: #fff;
-  text-decoration: underline;
 }
 #nav li:last-child {
   /*
@@ -466,7 +458,4 @@ mobile. Make sure to double check these!
 }
 .wrap {
   width: 1040px;
-}
-.nav-inner {
-  width: 1170px;
 }

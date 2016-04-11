@@ -156,8 +156,8 @@ add_action( 'customize_register', 'bones_theme_customizer' );
 function bones_register_sidebars() {
 	register_sidebar(array(
 		'id' => 'sidebar-home',
-		'name' => __( 'sidebar-home', 'bonestheme' ),
-		'description' => __( 'Home sidebar.', 'bonestheme' ),
+		'name' => __( 'home', 'bonestheme' ),
+		'description' => __( 'Sidebar Home.', 'bonestheme' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
@@ -165,9 +165,9 @@ function bones_register_sidebars() {
 	));
 
 	register_sidebar(array(
-		'id' => 'sidebar-projects',
-		'name' => __( 'Sidebar Projects', 'bonestheme' ),
-		'description' => __( 'Projects sidebar.', 'bonestheme' ),
+		'id' => 'sidebar-categories',
+		'name' => __( 'categories', 'bonestheme' ),
+		'description' => __( 'Sidebar Categories.', 'bonestheme' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
@@ -276,6 +276,8 @@ define('WP_SCSS_ALWAYS_RECOMPILE', true);
 
 
 /************* CUSTOM FUNCTIONS *************/
+
+
 
 function gallery_slider($output, $attr) {
   $ids = explode(',', $attr['ids']);

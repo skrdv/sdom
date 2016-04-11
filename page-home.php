@@ -16,15 +16,13 @@
 <?php get_header(); ?>
 
 			<div id="content">
-
 				<div id="inner-content" class="container cf">
 
 					<div class="block-home-categories col-md-12">
-
 						<?php
 						$args = array(
 				    	    'orderby'	   	=> 'none',
-							'exclude'		=> 1,
+							'include'		=> '37,41,43,39,42,44',
 				    	    'hide_empty'    => 1,
 							'parent'		=> 0,
 							'hierarchical' 	=> 1,
@@ -57,43 +55,11 @@
 							</div>
 						</div>
 						<?php endforeach; ?>
-
-
-
-						<?php /*
-						foreach (get_terms('category', array('orderby' => 'none')) as $cat) : ?>
-							<div class="col-md-4">
-								<div class="item">
-									<a href="<?php echo get_term_link($cat->slug, 'project_cat'); ?>">
-										<div class="image">
-											<img src="<?php echo z_taxonomy_image_url($cat->term_id); ?>" />
-										</div>
-										<h3 class="title"><?php echo $cat->name; ?></h3>
-									</a>
-									<div class="desc"><?php echo $cat->description; ?></div>
-									<?php $termchildren = get_term_children( $cat->term_id, 'project_cat' ); ?>
-									<ul>
-									<?php foreach ( $termchildren as $key=>$child ): ?>
-										<?php if($key < 5): ?>
-										<?php $term = get_term_by( 'id', $child, 'project_cat' ); ?>
-										<li>
-											<a href="<?php echo get_term_link( $child, 'project_cat' ) ?>">
-												<?php echo $term->name ?>
-											</a>
-										</li>
-										<?php endif; ?>
-									<?php endforeach; ?>
-									</ul>
-								</div>
-							</div>
-						<?php endforeach;
-						*/ ?>
-
 					</div>
 
-					<?php get_sidebar('sidebar-home'); ?>
+					<?php get_sidebar('home'); ?>
 
-					<main id="main" class="m-all col-md-9 cf homepage" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
+					<main id="main" class="col-md-9 cf homepage" role="main" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/Blog">
 
 						<?php if (have_posts()) : while (have_posts()) : the_post(); ?>
 
@@ -104,32 +70,10 @@
 							</header>
 
 							<section class="entry-content cf" itemprop="articleBody">
-								<?php
-									// the content (pretty self explanatory huh)
-									the_content();
-
-									/*
-									 * Link Pages is used in case you have posts that are set to break into
-									 * multiple pages. You can remove this if you don't plan on doing that.
-									 *
-									 * Also, breaking content up into multiple pages is a horrible experience,
-									 * so don't do it. While there are SOME edge cases where this is useful, it's
-									 * mostly used for people to get more ad views. It's up to you but if you want
-									 * to do it, you're wrong and I hate you. (Ok, I still love you but just not as much)
-									 *
-									 * http://gizmodo.com/5841121/google-wants-to-help-you-avoid-stupid-annoying-multiple-page-articles
-									 *
-									*/
-									wp_link_pages( array(
-										'before'      => '<div class="page-links"><span class="page-links-title">' . __( 'Pages:', 'bonestheme' ) . '</span>',
-										'after'       => '</div>',
-										'link_before' => '<span>',
-										'link_after'  => '</span>',
-									) );
-								?>
+								<?php the_content(); ?>
 							</section>
 
-							<div class="block block-works">
+							<div class="block block-home-works">
 								<header class="block-header">
 									<h3 class="block-title">Наши работы</h3>
 									<a class="btn btn-sm btn-brown btn-more" href="/articles">смотрт все</a>
@@ -152,7 +96,7 @@
 								*/ ?>
 							</div>
 
-							<div class="block block-articles">
+							<div class="block block-home-articles">
 								<header class="block-header">
 									<h3 class="block-title">Интересные статьи</h3>
 									<a class="btn btn-sm btn-brown btn-more" href="/articles">смотрт все</a>

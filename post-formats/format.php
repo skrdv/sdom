@@ -84,6 +84,29 @@
 						  </div>
 
 						  <button class="btn btn-lg btn-green btn-order">Перейти к оформлению заказа</button>
+						  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 					  </div>
 				  </section>
@@ -109,15 +132,13 @@
 						          <div class="projects-grid col-md-12">
 						             <?php while ( $query->have_posts() ) { ?>
 										<?php $query->the_post(); ?>
-											  <article id="post-<?php the_ID(); ?>" <?php post_class( 'cf col-md-4' ); ?> role="article">
-	  	  										<header class="article-header">
-	  	  											<a href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
-	  	  												<h3 class="title"><?php the_title(); ?></h3>
-	  	  											</a>
-	  	  										</header>
-	  	  										<section class="entry-content">
-	  	  											<?php if ( has_post_thumbnail() ) { the_post_thumbnail(); } ?>
-	  	  										</section>
+											  <article id="post-<?php the_ID(); ?>" <?php post_class( 'cf col-md-4 col-sm-6' ); ?> role="article">
+												<section class="project-content">
+													<?php if (has_post_thumbnail()) { the_post_thumbnail(); } ?>
+													<a class="cover" href="<?php the_permalink() ?>" rel="bookmark" title="<?php the_title_attribute(); ?>">
+														<h3 class="title"><?php the_title(); ?></h3>
+													</a>
+												</section>
 	  	  									</article>
 						            <?php } ?>
 						          </div>

@@ -1,12 +1,12 @@
-<div id="sidebar-projects" class="block-sidebar-projects m-all col-md-3 cf" role="complementary">
-	<div class="inner">
+<div class="sidebar col-md-3 cf" role="complementary">
+	<div class="sidebar-categories">
 		<?php
-		if ( is_active_sidebar( 'sidebar-projects' ) ) :
-			dynamic_sidebar( 'sidebar-projects' );
+		if ( is_active_sidebar( 'categories' ) ) :
+			dynamic_sidebar( 'categories' );
 		else :
 			$args = array(
 				'orderby'	   	=> 'none',
-				'exclude'		=> 1,
+				'include'		=> '37,41,43,39,40,42,44',
 				'hide_empty'    => 1,
 				'parent'		=> 0,
 				'hierarchical' 	=> 1,

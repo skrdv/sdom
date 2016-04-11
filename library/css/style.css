@@ -3704,21 +3704,12 @@ BUTTONS STYLES
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFDCAB62', endColorstr='#FFCA9953', GradientType=0);
 }
-.btn-more {
-  font-weight: normal;
-}
-.btn-order {
-  white-space: normal;
-}
 .btn-green {
   background-image: -webkit-linear-gradient(top, #87a816 0%, #627d03 100%);
   background-image: -o-linear-gradient(top, #87a816 0%, #627d03 100%);
   background-image: linear-gradient(to bottom, #87a816 0%, #627d03 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF87A816', endColorstr='#FF627D03', GradientType=0);
-  /*********************
-HEADER STYLES
-*********************/
 }
 .btn-green:hover, .btn-green:focus {
   background-image: -webkit-linear-gradient(top, #799614 0%, #627d03 100%);
@@ -3733,6 +3724,29 @@ HEADER STYLES
   background-image: linear-gradient(to bottom, #759113 0%, #627d03 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF749113', endColorstr='#FF627D03', GradientType=0);
+}
+.btn {
+  /*********************
+HEADER STYLES
+*********************/
+}
+.btn-more {
+  font-weight: normal;
+}
+.btn-order {
+  white-space: normal;
+}
+.btn-white {
+  color: #c48e42;
+  border-color: #c48e42;
+  border-radius: 3px;
+  font-weight: normal;
+  padding: 6px 16px;
+  font-size: 13px;
+}
+.btn-white:hover, .btn-white:focus {
+  color: #a3513d;
+  border-color: #a3513d;
 }
 .header {
   height: 363px;
@@ -3786,15 +3800,6 @@ and more scalable.
   background: url(../images/nav-bg.jpg) repeat-x left top;
   background-size: 100% auto;
 }
-#nav #calc {
-  display: block;
-  position: absolute;
-  right: 13px;
-  top: 13px;
-  width: 147px;
-  height: 44px;
-  background: url(../images/calc-icon.png) no-repeat left top;
-}
 #nav ul {
   margin: 0;
 }
@@ -3813,7 +3818,6 @@ and more scalable.
   font-weight: bold;
 }
 #nav li a:first-child {
-  padding-left: 15px;
   /*
 			remember this is for mobile ONLY, so there's no need
 			to even declare hover styles here, you can do it in
@@ -3821,7 +3825,21 @@ and more scalable.
 			keep this file as small as possible!
 			*/
 }
+#nav li a:hover, #nav li a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+#nav li:first-child {
+  padding-left: 15px;
+}
 #nav li:last-child {
+  display: block;
+  float: right;
+  margin-top: 12px;
+  text-indent: -9999px;
+  width: 147px;
+  height: 44px;
+  background: url(../images/calc-icon.png) no-repeat left top;
   /*
 		so you really have to rethink your dropdowns for mobile.
 		you don't want to have it expand too much because the
@@ -3902,8 +3920,8 @@ SIDEBAR & BLOCK STYLES
   border: 5px solid #cba36f;
 }
 .block-home-categories .item {
-  height: 300px;
-  padding: 0 60px;
+  min-height: 300px;
+  padding: 0 30px;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -3944,34 +3962,47 @@ SIDEBAR & BLOCK STYLES
 .block-sub-categories .item .title {
   margin: 10px 30px;
 }
-.block-works {
+.block-home-works {
   min-height: 200px;
 }
-.block-sidebar-projects {
+.block-home-articles {
+  min-height: 200px;
+}
+.sidebar-categories {
   padding: 0;
   margin-bottom: 15px;
   border-radius: 5px;
   border: 5px solid #cba36f;
-  /*********************
-POSTS & CONTENT STYLES
-*********************/
 }
-.block-sidebar-projects .box {
+.sidebar-categories .box {
   display: block;
   padding: 10px;
   text-align: center;
 }
-.block-sidebar-projects .box:hover {
+.sidebar-categories .box:hover {
   background-color: #f8ead7;
 }
-.block-sidebar-projects .image, .block-sidebar-projects .title {
+.sidebar-categories .image, .sidebar-categories .title {
   display: inline-block;
 }
-.block-sidebar-projects .title {
+.sidebar-categories .title {
   width: 100%;
   text-transform: uppercase;
   font-weight: 700;
   color: #894e23;
+}
+.sidebar {
+  /*********************
+POSTS & CONTENT STYLES
+*********************/
+}
+.sidebar .banner {
+  display: block;
+  margin-bottom: 15px;
+}
+.sidebar .banner img {
+  width: 100%;
+  height: auto;
 }
 #content {
   margin-top: 13px;
@@ -4048,17 +4079,26 @@ POSTS & CONTENT STYLES
 .projects-grid {
   padding: 0;
 }
-.projects-grid .post {
-  position: relative;
-}
-.projects-grid .post .article-header {
-  width: 256px;
-  height: 168px;
+.projects-grid .post .project-header {
   margin: 0 15px;
+}
+.projects-grid .post .project-content {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 3px;
+}
+.projects-grid .post .project-content .cover {
   position: absolute;
   left: 0;
   top: 0;
   text-align: center;
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  min-height: 170px;
+  text-decoration: none;
   border-radius: 4px;
   background-color: rgba(0, 0, 0, 0.6);
   opacity: 0;
@@ -4066,26 +4106,18 @@ POSTS & CONTENT STYLES
   -o-transition: opacity 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out;
 }
-.projects-grid .post .article-header:hover {
+.projects-grid .post .project-content .cover:hover {
   opacity: 1;
 }
-.projects-grid .post .article-header a {
-  display: inline-block;
-  width: 256px;
-  height: 168px;
-  color: #fff;
-  text-decoration: none;
-}
-.projects-grid .post .article-header .title {
-  margin: 60px 0;
+.projects-grid .post .project-content .cover .title {
+  padding: 50px 0 110px 0;
   font-size: 15px;
+  line-height: 20px;
+  color: #fff;
 }
-.projects-grid .post .entry-content {
-  padding: 3px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-.projects-grid .post .entry-content img {
+.projects-grid .post .project-content img {
+  width: 100%;
+  height: auto;
   margin: 0;
 }
 .projects-category {
@@ -4101,43 +4133,28 @@ POSTS & CONTENT STYLES
   background-color: #fff;
   margin-bottom: 1.5em;
 }
-.single-title, .archive-title, .page-title, .entry-title {
-  margin: 0.3em 0 0.6em 0;
-  padding-left: 15px;
-  font-family: 'PT Sans', sans-serif;
+.single-title, .archive-title, .category-title, .page-title, .entry-title {
+  margin: 0 0 0.6em 0;
   color: #a3513d;
 }
 .block-title {
-  margin: 0.3em 0 0.6em 0;
+  margin: 0.6em 0.6em 0.6em 0;
   font-size: 18px;
+  font-size: 23px;
   color: #6b6968;
+  color: #a3513d;
+  vertical-align: middle;
 }
-.archive {
-  /* want to style individual post classes? Booya! */
+.single-title {
+  padding-left: 15px;
 }
-.post-id {
-  /* post by id (i.e. post-3) */
+.category-description {
+  margin-bottom: 0.6em;
 }
-.post {
-  /* general post style */
-}
-.page {
-  /* general article on a page style */
-}
-.attachment {
-  /* general style on an attatchment */
-}
-.sticky {
-  /* sticky post style */
-}
-.hentry {
-  /* hentry class */
-}
-.category-slug {
-  /* style by category (i.e. category-videos) */
+.page .home .page-title {
+  margin-top: 0;
 }
 .tag-slug {
-  /* style by tag (i.e. tag-news) */
   /* post meta */
 }
 .byline {
@@ -4147,6 +4164,7 @@ POSTS & CONTENT STYLES
   /* entry content */
 }
 .entry-content {
+  display: inline-block;
   padding: 0;
   /* end .entry-content */
 }
@@ -4208,7 +4226,7 @@ POSTS & CONTENT STYLES
   color: #ba7217;
 }
 .entry-content p {
-  margin: 0 0 1.5em;
+  margin: 0 0 1em;
 }
 .entry-content table {
   width: 100%;
@@ -4376,15 +4394,12 @@ FOOTER STYLES
   background: url(../images/footer-top.jpg) repeat-x left top;
 }
 .footer-logo {
-  float: left;
   margin-top: 20px;
 }
-.footer-block {
-  float: right;
-  width: 250px;
-  margin-bottom: 20px;
+.footer-nav {
+  margin-bottom: 30px;
 }
-.footer-block .map {
+.footer-nav .map {
   display: block;
 }
 .footer-title {
@@ -4522,10 +4537,6 @@ HEADER STYLES
 NAVIGATION STYLES
 *********************/
   }
-  .nav-inner {
-    width: 100%;
-    margin: 0 30px;
-  }
   #nav {
     border: 0;
     /* end .nav */
@@ -4548,10 +4559,6 @@ SIDEBARS & ASIDES
 			has the possibility of being a mobile device.
 			*/
     border-bottom: 0;
-  }
-  #nav li a:hover, #nav li a:focus {
-    color: #fff;
-    text-decoration: underline;
   }
   #nav li:last-child {
     /*
@@ -4685,9 +4692,6 @@ This is for the larger monitors and possibly full screen viewers.
 *********************/  .wrap {
     width: 1040px;
   }
-  .nav-inner {
-    width: 1170px;
-  }
 }
 @media only screen and (min-width: 1240px) {
   /******************************************************************
@@ -4706,9 +4710,6 @@ This applies to the retina iPhone (4s) and iPad (2,3) along with
 other displays with a 2x resolution. You can also create a media
 query for retina AND a certain size if you want. Go Nuts.
 *********************/  .wrap {
-    width: 1170px;
-  }
-  .nav-inner {
     width: 1170px;
   }
 }
