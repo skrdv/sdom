@@ -37,41 +37,69 @@
 
 								<section class="entry-content cf">
 
-									<div id="project-content" class="project-content col-md-8">
+									<div class="project-content col-md-8">
 										<?php the_content(); ?>
 									</div>
 
-									<div id="project-params" class="project-data col-md-4">
-										<div class="param cf">
-											<div class="label">Общий размер дома</div>
-											<div class="value">
-												<?php the_field('overall_size'); ?>
+									<div class="project-data col-md-4">
+
+										<div class="params">
+											<div class="param cf">
+												<div class="label">Общий размер дома</div>
+												<div class="value">
+													<?php the_field('overall_size'); ?> м
+												</div>
+											</div>
+											<div class="param cf">
+												<div class="label">Общая площадь</div>
+												<div class="value">
+													<?php the_field('total_area'); ?> м&sup2;
+												</div>
+											</div>
+											<div class="param cf">
+												<div class="label">Площадь крыльца</div>
+												<div class="value">
+													<?php the_field('porch_area'); ?> м&sup2;
+												</div>
+											</div>
+											<div class="param cf">
+												<div class="label">Площадь веранды</div>
+												<div class="value">
+													<?php the_field('veranda_area'); ?> м&sup2;
+												</div>
+											</div>
+											<div class="param cf">
+												<div class="label">Площадь балкона</div>
+												<div class="value">
+													<?php the_field('balcony_area'); ?> м&sup2;
+												</div>
 											</div>
 										</div>
-										<div class="param cf">
-											<div class="label">Общая площадь</div>
+
+										<div class="checks">
+											<?php if (the_field('foundation') === 1): ?>
+												<?php echo '<div class="check green">Фундамент</div>'; ?>
+											<?php endif; ?>
+											<?php if (the_field('check_1') === 1): ?>
+												<div class="check gray">Обработка сруба рубанком</div>
+											<?php endif; ?>
+											<?php if (the_field('check_2') === 1): ?>
+												<div class="check gray">Обработка сруба антисептиком</div>
+											<?php endif; ?>
+											<?php if (the_field('check_3') === 1): ?>
+												<div class="check gray">Подвивка мха (первичная конопатка)</div>
+											<?php endif; ?>
+										</div>
+
+										<div class="price">
+											<div class="label">Цена дома под крышу:</div>
 											<div class="value">
-												<?php the_field('total_area'); ?>
+												~ <?php the_field('price'); ?> &#8381;
 											</div>
 										</div>
-										<div class="param cf">
-											<div class="label">Площадь крыльца</div>
-											<div class="value">
-												<?php the_field('porch_area'); ?>
-											</div>
-										</div>
-										<div class="param cf">
-											<div class="label">Площадь веранды</div>
-											<div class="value">
-												<?php the_field('veranda_area'); ?>
-											</div>
-										</div>
-										<div class="param cf">
-											<div class="label">Площадь балкона</div>
-											<div class="value">
-												<?php the_field('balcony_area'); ?>
-											</div>
-										</div>
+
+										<button class="btn order">Перейти к оформлению заказа</button>
+
 									</div>
 
 

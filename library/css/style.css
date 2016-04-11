@@ -1189,11 +1189,17 @@ POSTS & CONTENT STYLES
   padding: 0;
   /* end .entry-content */
 }
-.entry-content .bxslider {
+.entry-content .slider {
   margin: 0;
 }
-.entry-content .bxslider img {
+.entry-content .slider img {
   margin: 0;
+}
+.entry-content .bx-wrapper {
+  margin-bottom: 15px;
+}
+.entry-content .pager a {
+  margin-right: 30px;
 }
 .entry-content .params .label {
   float: left;

@@ -418,10 +418,18 @@ POSTS & CONTENT STYLES
 		.entry-content {
 			padding: 0;
 
-			.bxslider {
+			.slider {
 				margin: 0;
 				img {
 					margin: 0;
+				}
+			}
+			.bx-wrapper {
+				margin-bottom: 15px;
+			}
+			.pager {
+				a {
+					margin-right: 30px;
 				}
 			}
 
