@@ -305,7 +305,18 @@ function gallery_slider_template($images) {
   return $output;
 }
 
-
+function catch_first_image() {
+  global $post, $posts;
+  $first_img = '';
+  ob_start();
+  ob_end_clean();
+  $output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $matches);
+  $first_img = $matches [1] [0];
+  if(empty($first_img)) {
+    $first_img = "/images/default.jpg"; // Ссылка на изображение-заглушку, если в посте оно не найдено
+  }
+  return $first_img;
+}
 
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

@@ -678,7 +678,7 @@ p {
   border-color: #deeaae;
   background: #e6efc2;
 }
-.blue-btn {
+.blue-btn, .green-btn {
   display: inline-block;
   position: relative;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -706,12 +706,12 @@ You can use this example if you want. Just replace all the variables
 and it will create a button dependant on those variables.
 */
 }
-.blue-btn:hover, .blue-btn:focus {
+.blue-btn:hover, .green-btn:hover, .blue-btn:focus, .green-btn:focus {
   color: #fff;
   text-decoration: none;
   outline: none;
 }
-.blue-btn:active {
+.blue-btn:active, .green-btn:active {
   top: 1px;
 }
 .blue-btn {
@@ -721,6 +721,27 @@ and it will create a button dependant on those variables.
   background-color: #2574a8;
 }
 .blue-btn:active {
+  background-color: #2472a4;
+}
+.green-btn {
+  background-color: #2980b9;
+  background-color: #627d03;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#87a816), to(#627d03));
+  background-image: -webkit-linear-gradient(top, #87a816, #627d03);
+  background-image: -moz-linear-gradient(top, #87a816, #627d03);
+  background-image: -o-linear-gradient(top, #87a816, #627d03);
+  background-image: linear-gradient(to bottom, #87a816, #627d03);
+  /*********************
+BOX SIZING
+*********************/
+  /* @include box-sizing(border-box); */
+  /* NOTE: value of "padding-box" is only supported in Gecko. So
+probably best not to use it. I mean, were you going to anyway? */
+}
+.green-btn:hover, .green-btn:focus {
+  background-color: #2574a8;
+}
+.green-btn:active {
   background-color: #2472a4;
 }
 input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], select, textarea, .field {
@@ -931,6 +952,7 @@ H1, H2, H3, H4, H5 STYLES
 }
 a:hover, a:visited:hover, a:focus, a:visited:focus {
   color: #d10e3c;
+  outline: none;
   /* on click */
 }
 a:active, a:visited:active {
@@ -1152,7 +1174,26 @@ POSTS & CONTENT STYLES
   margin: 0.3em 0 0.6em 0;
   padding-left: 15px;
   color: #a3513d;
+}
+.archive {
   /* want to style individual post classes? Booya! */
+}
+.archive .project {
+  position: relative;
+}
+.archive .project .article-header {
+  width: 260px;
+  height: 170px;
+  margin: 0 15px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  opacity: 0;
+}
+.archive .project .article-header:hover {
+  opacity: 1;
 }
 .post-id {
   /* post by id (i.e. post-3) */

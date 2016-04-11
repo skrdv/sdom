@@ -85,6 +85,7 @@ a, a:visited {
 	/* on hover */
 	&:hover, &:focus {
 		color: $link-hover;
+		outline: none;
 	}
 
 	/* on click */
@@ -394,6 +395,26 @@ POSTS & CONTENT STYLES
 			color: #a3513d;
 		}
 
+
+		.archive {
+			.project {
+				position: relative;
+				.article-header {
+					width: 260px;
+					height: 170px;
+					margin: 0 15px;
+					position: absolute;
+					left: 0;
+					top: 0;
+					background-color: rgba(0,0,0,0.5);
+					text-align: center;
+					opacity: 0;
+					&:hover {
+						opacity: 1;
+					}
+				}
+			}
+		}
 
 		/* want to style individual post classes? Booya! */
 		.post-id {}         /* post by id (i.e. post-3) */

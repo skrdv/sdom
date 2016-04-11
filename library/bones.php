@@ -170,7 +170,7 @@ function bones_theme_support() {
 	add_theme_support( 'post-thumbnails' );
 
 	// default thumb size
-	set_post_thumbnail_size(125, 125, true);
+	set_post_thumbnail_size(260, 170, true);
 
 	// wp custom background (thx to @bransonwerner for update)
 	add_theme_support( 'custom-background',
@@ -211,7 +211,7 @@ function bones_theme_support() {
 		array(
 			'main-nav' => __( 'The Main Menu', 'bonestheme' ),   // main nav in header
 			'footer-links-1' => __( 'Footer Links 1', 'bonestheme' ),
-			'footer-links-2' => __( 'Footer Links 2', 'bonestheme' ) 
+			'footer-links-2' => __( 'Footer Links 2', 'bonestheme' )
 		)
 	);
 

@@ -98,7 +98,7 @@
 											</div>
 										</div>
 
-										<button class="btn order">Перейти к оформлению заказа</button>
+										<button class="green-btn order">Перейти к оформлению заказа</button>
 
 									</div>
 
