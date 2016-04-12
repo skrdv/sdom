@@ -85,7 +85,7 @@
 			<div class="feedback-man"></div>
 			<div class="feedback-title">У вас появился <span>вопрос?</span></div>
 			<div class="feedback-desc">немедленно задайте его нам!</div>
-			<?php echo do_shortcode('[contact-form-7 id="20" title="Контактная форма"]'); ?>
+			<?php echo do_shortcode('[contact-form-7 id="20" title="Обратная связь"]'); ?>
 		</div>
 
 	</div>

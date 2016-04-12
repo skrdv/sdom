@@ -41,6 +41,14 @@ the whole project.
 @import "bootstrap/forms";
 @import "bootstrap/buttons";
 
+// Components w/ JavaScript
+@import "bootstrap/modals";
+
+//Third party
+@import "font-awesome/font-awesome";
+@import "bootstrap/awesome-bootstrap-checkbox";
+
+
 // normalize: http://necolas.github.io/normalize.css/
 @import "partials/normalize";
 

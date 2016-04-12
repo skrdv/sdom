@@ -9,6 +9,17 @@ be seen on the Desktop.
 
 ******************************************************************/
 
-.wrap {
-  width: 1040px;
+.page-template-page-articles {
+	.nav-main {
+		.plate {
+			width: 500px;
+			height: 180px;
+			position: absolute;
+			bottom: 45px;
+			left: 50%;
+			margin-left: -250px;
+			background: url(../images/header-plate.png) no-repeat center bottom;
+			background-size: 100%;
+		}
+	}
 }

@@ -1,6 +1,6 @@
 <?php
 /*
- Template Name: Главная страница
+ Template Name: Главная
  *
  * This is your custom page template. You can create as many of these as you need.
  * Simply name is "page-whatever.php" and in add the "Template Name" title at the
@@ -117,17 +117,11 @@
 
 						<?php endwhile; else : ?>
 
-								<article id="post-not-found" class="hentry cf">
-										<header class="article-header">
-											<h1><?php _e( 'Oops, Post Not Found!', 'bonestheme' ); ?></h1>
-									</header>
-										<section class="entry-content">
-											<p><?php _e( 'Uh Oh. Something is missing. Try double checking things.', 'bonestheme' ); ?></p>
-									</section>
-									<footer class="article-footer">
-											<p><?php _e( 'This is the error message in the page-custom.php template.', 'bonestheme' ); ?></p>
-									</footer>
-								</article>
+							<article id="post-not-found" class="hentry cf">
+								<section class="entry-content">
+									<h1><?php _e('Oops, Post Not Found!', 'bonestheme'); ?></h1>
+								</section>
+							</article>
 
 						<?php endif; ?>
 
@@ -137,7 +131,7 @@
 						<div class="feedback-man"></div>
 						<div class="feedback-title">У вас появился <span>вопрос?</span></div>
 						<div class="feedback-desc">немедленно задайте его нам!</div>
-						<?php echo do_shortcode( '[contact-form-7 id="20" title="Контактная форма"]' ); ?>
+						<?php echo do_shortcode( '[contact-form-7 id="20" title="Обратная связь"]' ); ?>
 					</div>
 
 				</div>

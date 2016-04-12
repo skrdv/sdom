@@ -22,7 +22,7 @@ Let's get everything up and running.
 function bones_ahoy() {
 
   //Allow editor style.
-  add_editor_style( get_stylesheet_directory_uri() . '/library/css/editor-style.css' );
+  // add_editor_style( get_stylesheet_directory_uri() . '/library/css/editor-style.css' );
 
   // let's get language support going, if you need it
   load_theme_textdomain( 'bonestheme', get_template_directory() . '/library/translation' );
@@ -73,8 +73,8 @@ if ( ! isset( $content_width ) ) {
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
-add_image_size( 'bones-thumb-536', 536, 414, true );
-add_image_size( 'bones-thumb-92', 92, 71, true );
+// add_image_size( 'bones-thumb-536', 536, 414, true );
+// add_image_size( 'bones-thumb-92', 92, 71, true );
 
 /*
 to add more sizes, simply copy a line from above
@@ -96,14 +96,14 @@ You can change the names and dimensions to whatever
 you like. Enjoy!
 */
 
-add_filter( 'image_size_names_choose', 'bones_custom_image_sizes' );
-
-function bones_custom_image_sizes( $sizes ) {
-    return array_merge( $sizes, array(
-        'bones-thumb-536' => __('536px by 414px'),
-        'bones-thumb-92' => __('92px by 71px'),
-    ) );
-}
+// add_filter( 'image_size_names_choose', 'bones_custom_image_sizes' );
+//
+// function bones_custom_image_sizes( $sizes ) {
+//     return array_merge( $sizes, array(
+//         'bones-thumb-536' => __('536px by 414px'),
+//         'bones-thumb-92' => __('92px by 71px'),
+//     ) );
+// }
 
 /*
 The function above adds the ability to use the dropdown menu to select
@@ -175,9 +175,9 @@ function bones_register_sidebars() {
 	));
 
 	register_sidebar(array(
-		'id' => 'sidebar-services',
-		'name' => __( 'Sidebar Services', 'bonestheme' ),
-		'description' => __( 'Services sidebar.', 'bonestheme' ),
+		'id' => 'sidebar-articles',
+		'name' => __( 'articles', 'bonestheme' ),
+		'description' => __( 'Services Articles.', 'bonestheme' ),
 		'before_widget' => '<div id="%1$s" class="widget %2$s">',
 		'after_widget' => '</div>',
 		'before_title' => '<h4 class="widgettitle">',
@@ -260,7 +260,7 @@ and be up and running in seconds.
 */
 function add_fonts() {
 	wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic');
-	wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin,cyrillic');
+	// wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=latin,cyrillic');
 	// wp_enqueue_style('googleFonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600&subset=latin,cyrillic');
 }
 
@@ -276,6 +276,29 @@ define('WP_SCSS_ALWAYS_RECOMPILE', true);
 
 
 /************* CUSTOM FUNCTIONS *************/
+
+add_action('template_include', 'load_single_template');
+  function load_single_template($template) {
+    $new_template = '';
+
+    // single post template
+    if( is_single() ) {
+      global $post;
+      // 'cat-1' and 'cat-2' are category slugs
+
+      if( has_term('articles', 'category', $post) ) {
+        // use template file single-template-cat-1.php
+        $new_template = locate_template(array('single-article.php' ));
+      }
+
+      if( has_term('works', 'category', $post) ) {
+        // use template file single-template-cat-2.php
+        $new_template = locate_template(array('single-work.php' ));
+      }
+
+    }
+    return ('' != $new_template) ? $new_template : $template;
+  }
 
 
 

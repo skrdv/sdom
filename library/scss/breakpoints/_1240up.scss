@@ -9,10 +9,17 @@ on larger screens.
 
 ******************************************************************/
 
-.wrap {
-  width: 1170px;
+.page-template-page-articles {
+	.nav-main {
+		.plate {
+			width: 640px;
+			height: 180px;
+			position: absolute;
+			bottom: 45px;
+			left: 50%;
+			margin-left: -320px;
+			background: url(../images/header-plate.png) no-repeat center bottom;
+			background-size: 100%;
+		}
+	}
 }
-
-// .nav-inner {
-//   width: 1170px;
-// }

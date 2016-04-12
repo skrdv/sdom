@@ -45,8 +45,11 @@
 		<div id="container">
 
 			<header class="header" role="banner" itemscope itemtype="http://schema.org/WPHeader">
-
 				<div id="inner-header" class="container cf">
+
+
+
+
 
 					<div class="logo" itemscope itemtype="http://schema.org/Organization">
 						<a href="<?php echo home_url(); ?>" rel="nofollow">
@@ -59,12 +62,16 @@
 						<div class="adress">С-Пб, Волковский пр., 12</div>
 					</div>
 
-				</div>
+					<!-- <div class="plate"></div> -->
 
+
+
+				</div>
 			</header>
 
-			<div id="nav">
-				<div class="nav-inner container">
+			<div class="nav-main">
+				<div class="container">
+					<div class="plate"></div>
 					<nav role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
 						<?php wp_nav_menu(array(
 								 'container' => false,                           // remove nav container
@@ -81,5 +88,4 @@
 						)); ?>
 					</nav>
 				</div>
-
 			</div>
