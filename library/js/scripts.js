@@ -117,4 +117,18 @@ jQuery(document).ready(function($) {
   loadGravatars();
 
 
+
+	/* Project slider */
+	slider = $('#project-slider');
+	thumb = slider.find('.slider-pager').find('a');
+	image = slider.find('.slider-image').find('img');
+	$(document).on('click', '.slider-pager a', function(e) {
+		e.preventDefault;
+		imgUrl = $(this).data('full');
+		console.log(imgUrl);
+		image.attr('src', imgUrl);
+		// image.src = imgUrl;
+	})
+
+
 }); /* end of as page load scripts */

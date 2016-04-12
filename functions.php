@@ -73,8 +73,7 @@ if ( ! isset( $content_width ) ) {
 /************* THUMBNAIL SIZE OPTIONS *************/
 
 // Thumbnail sizes
-// add_image_size( 'bones-thumb-536', 536, 414, true );
-// add_image_size( 'bones-thumb-92', 92, 71, true );
+add_image_size( 'bones-thumb-article', 270, 110, true );
 
 /*
 to add more sizes, simply copy a line from above
@@ -96,14 +95,13 @@ You can change the names and dimensions to whatever
 you like. Enjoy!
 */
 
-// add_filter( 'image_size_names_choose', 'bones_custom_image_sizes' );
-//
-// function bones_custom_image_sizes( $sizes ) {
-//     return array_merge( $sizes, array(
-//         'bones-thumb-536' => __('536px by 414px'),
-//         'bones-thumb-92' => __('92px by 71px'),
-//     ) );
-// }
+add_filter( 'image_size_names_choose', 'bones_custom_image_sizes' );
+
+function bones_custom_image_sizes( $sizes ) {
+    return array_merge( $sizes, array(
+        'bones-thumb-article' => __('Article thumbnail'),
+    ) );
+}
 
 /*
 The function above adds the ability to use the dropdown menu to select
@@ -302,6 +300,9 @@ add_action('template_include', 'load_single_template');
 
 
 
+
+
+/*
 function gallery_slider($output, $attr) {
   $ids = explode(',', $attr['ids']);
   $images = get_posts(array(
@@ -323,6 +324,6 @@ function gallery_slider_template($images) {
   $output = ob_get_clean();
   return $output;
 }
-
+*/
 
 /* DON'T DELETE THIS CLOSING TAG */ ?>

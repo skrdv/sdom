@@ -53,7 +53,7 @@
 							<div class="adress">С-Пб, Волковский пр., 12</div>
 							<div class="email">Email: support@admin.ru</div>
 							<a class="map" href="#">Схема проезда</a>
-							<a class="strogov"href="<?php echo home_url(); ?>">
+							<a class="strogov"href="http://www.strogov.ru/" target="_blank" alt="Strogov Media">
 								<img src="<?php echo get_template_directory_uri(); ?>/library/images/strogov.png" />
 							</a>
 						</div>

@@ -99,18 +99,35 @@
 							<div class="block block-home-articles">
 								<header class="block-header">
 									<h3 class="block-title">Интересные статьи</h3>
-									<a class="btn btn-sm btn-brown btn-more" href="/articles">смотрт все</a>
+									<a class="btn btn-sm btn-brown btn-more" href="/all-articles/">смотрт все</a>
 								</header>
-								<?php
-								$args = array( 'cat' => '18', 'posts_per_page' => '2' );
-								$loop = new WP_Query( $args );
-								while ( $loop->have_posts() ) : $loop->the_post();
-								the_title();
-								echo '<div class="entry-content">';
-								the_content();
-								echo '</div>';
-								endwhile;
-								?>
+
+								<?php $articles_ids = array('120', '128'); ?>
+								<?php foreach ( $articles_ids as $page_id ): ?>
+									<?php $page = get_post($page_id); ?>
+									<?php $content = apply_filters('the_content', $page->post_content); ?>
+								<div class="article-item cf">
+									<a class="article-image" href="<?php echo get_permalink( $page_id ); ?>">
+										<?php echo get_the_post_thumbnail( $page_id, 'bones-thumb-article' ); ?>
+									</a>
+									<div class="article-data">
+										<h3 class="article-title">
+											<a href="<?php echo get_permalink( $page_id ); ?>">
+											<?php echo $post->post_title; ?>
+											</a>
+										</h3>
+										<div class="article-date">
+											<?php echo $post->post_date; ?>
+										</div>
+										<div class="article-content">
+											<?php echo(strip_tags($content)); ?>
+										</div>
+									</div>
+								</div>
+							<?php endforeach; ?>
+
+
+
 							</div>
 
 						</article>
